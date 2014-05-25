@@ -45,7 +45,6 @@
                                     <outlet property="numberLabel" destination="1MW-gI-vBq" id="Jpd-66-Uf4"/>
                                     <outlet property="starterLabel" destination="OVM-8I-DyG" id="u7w-l0-g24"/>
                                     <outlet property="titleLabel" destination="YnV-wE-hjX" id="f1x-8i-sGq"/>
-                                    <segue destination="bvb-aQ-orb" kind="push" identifier="discoverySegue" id="90T-nr-qfa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,25 +71,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBR-A7-loV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-246" y="-397"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="azM-ru-2Lf">
-            <objects>
-                <viewController id="bvb-aQ-orb" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mmS-Qe-Ycc"/>
-                        <viewControllerLayoutGuide type="bottom" id="qb3-B2-HQT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8oU-Gn-Q8o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="GXk-5W-k12"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xax-XQ-DYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="248" y="-397"/>
         </scene>
         <!--Navigation Controller - 发现-->
         <scene sceneID="zzo-Ir-8NU">
@@ -134,7 +114,7 @@
         <scene sceneID="sGx-Vj-eB9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dnu-kL-FXS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的赌博" id="cnQ-3L-Q5d"/>
+                    <tabBarItem key="tabBarItem" title="我的赌博" image="user" id="cnQ-3L-Q5d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cL1-m1-3x0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -153,18 +133,44 @@
         <scene sceneID="qT6-Mu-pa5">
             <objects>
                 <tableViewController id="mNI-Jd-hjA" customClass="MyBetTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hfz-gX-w07">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="93" sectionHeaderHeight="10" sectionFooterHeight="10" id="hfz-gX-w07">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AHK-pK-Hg3">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mybetcellIdentifier" rowHeight="93" id="AHK-pK-Hg3" customClass="MyBetTableViewCell">
+                                <rect key="frame" x="0.0" y="119" width="320" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AHK-pK-Hg3" id="PxA-C5-tlj">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="92"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-SA-web">
+                                            <rect key="frame" x="20" y="13" width="267" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发起人：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Miw-Hi-ru7">
+                                            <rect key="frame" x="20" y="42" width="247" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="参与人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KT-HP-LeV">
+                                            <rect key="frame" x="20" y="61" width="247" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="numberLabel" destination="3KT-HP-LeV" id="xWM-Qp-8on"/>
+                                    <outlet property="starterLabel" destination="Miw-Hi-ru7" id="pgK-bX-7bN"/>
+                                    <outlet property="titleLabel" destination="2e9-SA-web" id="qGT-87-yiI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -173,6 +179,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的赌博" id="fCc-Z0-Wvr"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="MSy-Wb-ac7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="mNI-Jd-hjA" eventType="valueChanged" id="Lpr-48-XUY"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUd-78-Oae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,6 +193,7 @@
     </scenes>
     <resources>
         <image name="compass" width="33" height="30"/>
+        <image name="user" width="25" height="26"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

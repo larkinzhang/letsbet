@@ -8,6 +8,8 @@
 
 #import "BetDiscoveryTableViewController.h"
 
+NSString* const LoginSuccessNotification = @"LoginSuccess";
+
 @interface BetDiscoveryTableViewController ()
 
 @end
@@ -34,8 +36,23 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    /*
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(loginSuccess:) name:LoginSuccessNotification object:nil];
+    */
+    
     BetLoginViewController *view = [[BetLoginViewController alloc] initWithNibName:@"BetLoginViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.userName = [userDefaults stringForKey:@"username"];
+    
+    [self refresh:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,8 +60,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -61,8 +76,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-    if (cell==nil) {
-        cell=[[DiscoveryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellIdentifier"];
+    if (cell == nil) {
+        cell = [[DiscoveryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellIdentifier"];
     }
     
     // Configure the cell...
@@ -84,7 +99,7 @@
     
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/QueryActiveBets"];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSString *params = @"name=larkin";
+    NSString *params = [NSString stringWithFormat:@"name=%@", self.userName];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -163,6 +178,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger row = [indexPath row];
+    BetInfo *curBet = [self.betList objectAtIndex:row];
+    
+    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
+    view.title = curBet.betName;
+    view.titleString = curBet.intro;
+    view.sideAString = curBet.voteA;
+    view.sideBString = curBet.voteB;
+    view.sideAPopulation = curBet.sumA;
+    view.sideBPopulation = curBet.sumB;
+    
+    [self.navigationController pushViewController:view animated:YES];
 }
 
 
@@ -182,6 +209,17 @@
 - (IBAction)postBet:(id)sender {
     BetAddViewController *view = [[BetAddViewController alloc] initWithNibName:@"BetAddViewController" bundle:nil];
     [self presentViewController:view animated:YES completion:nil];
+}
+
+- (void)loginSuccess:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    self.userName = [userInfo objectForKey:@"username"];
+    
+    NSLog(@"%@", self.userName);
+
+    
+    [self refresh:nil];
 }
 
 @end

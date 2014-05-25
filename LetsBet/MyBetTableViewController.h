@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BetInfo.h"
+#import "MyBetTableViewCell.h"
+#import "showDetailsViewController.h"
 
-@interface MyBetTableViewController : UITableViewController
+@interface MyBetTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+- (IBAction)refresh:(id)sender;
+
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSMutableArray *userList, *confirmList;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "BetLoginViewController.h"
 
+extern NSString *LoginSuccessNotification;
+
 @interface BetLoginViewController ()
 
 @end
@@ -41,6 +43,17 @@
 }
 
 - (IBAction)login:(id)sender {
+    /*
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.accountField.text forKey:@"username"];
+    [nc postNotificationName:LoginSuccessNotification object:self userInfo:userInfo];
+    */
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.accountField.text forKey:@"username"];
+    [userDefaults setObject:self.passwordField.text forKey:@"password"];
+    [userDefaults synchronize];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

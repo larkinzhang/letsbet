@@ -12,9 +12,11 @@
 #import "BetLoginViewController.h"
 #import "BetAddViewController.h"
 #import "BetInfo.h"
+#import "showDetailsViewController.h"
 
-@interface BetDiscoveryTableViewController : UITableViewController
+@interface BetDiscoveryTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *betList;
+@property (nonatomic, strong) NSString *userName;
 
 @end
