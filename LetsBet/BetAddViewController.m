@@ -14,33 +14,59 @@
 - (IBAction)toggleControls1:(id)sender {
     NSInteger selectedSegment = [sender selectedSegmentIndex];
     NSLog(@"Segment %ld selected\n", (long)selectedSegment);
-    if (selectedSegment == 0)
-    {
-        self.renrenTextField1.hidden = NO;
-        
-    }
-    else
-    {
-        self.renrenTextField1.hidden = YES;
-    }
-}
-
-
-- (IBAction)toggleControls2:(id)sender {
-    NSInteger selectedSegment = [sender selectedSegmentIndex];
-    NSLog(@"Segment %ld selected\n", selectedSegment);
-    if (selectedSegment == 0)
-    {
-        self.renrenTextField2.hidden = NO;
-        
-    }
-    else
-    {
-        self.renrenTextField2.hidden = YES;
+   
+    if (selectedSegment == 0) {
+        self.renrenTextField1.placeholder = @"请输入人人状态的内容。";
+        self.renrenTextField2.placeholder = @"请输入人人状态的内容。";
+    } else {
+        self.renrenTextField1.placeholder = @"请输入惩罚内容。";
+        self.renrenTextField2.placeholder = @"请输入惩罚内容。";
     }
 }
 
 - (void)pushCancel:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)startBet:(id)sender {
+    self.cancelButton.enabled = NO;
+    self.sendButton.enabled = NO;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *userName = [userDefaults stringForKey:@"username"];
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/CreateBetAndJoin"];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString *params = [NSString stringWithFormat:@"name=%@&penaltyA=%@&penaltyB=%@&introduction=%@&RRS=%ld&UserName=%@&RRmesA=%@&RRmesB=%@", self.betNameTextField.text, self.sideATextField.text, self.sideBTextField.text, self.betNameTextField.text, 1 - self.segmentedControl1.selectedSegmentIndex, userName, self.renrenTextField1.text, self.renrenTextField2.text];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"Response:%@ %@\n", response, error);
+        
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:nil message:@"发起成功！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.cancelButton.enabled = YES;
+                self.sendButton.enabled = YES;
+            });
+        }
+        
+    }];
+    
+    [dataTask resume];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

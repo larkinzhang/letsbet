@@ -121,6 +121,9 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
                         tmp.sumA = [[bet valueForKey:@"SumA"] integerValue];
                         tmp.sumB = [[bet valueForKey:@"SumB"] integerValue];
                         tmp.starter = [bet valueForKey:@"Sponsorer"];
+                        tmp.penaltyA = [bet valueForKey:@"RRMesA"];
+                        tmp.penaltyB = [bet valueForKey:@"RRMesB"];
+                        tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
                         
                         [self.betList addObject:tmp];
                     }
@@ -188,6 +191,9 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     view.sideBString = curBet.voteB;
     view.sideAPopulation = curBet.sumA;
     view.sideBPopulation = curBet.sumB;
+    view.idBets = curBet.idBets;
+//    view.sideADetailString = curBet.penaltyA;
+//    view.sideBDetailString = curBet.penaltyB;
     
     [self.navigationController pushViewController:view animated:YES];
 }

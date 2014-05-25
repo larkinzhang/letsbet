@@ -45,10 +45,10 @@
     self.sideBLabel.text = self.sideBString;
     self.sideBLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBLabel.numberOfLines = 0;
-    self.sideADetailsLabel.text = @"吃翔三斤";
+    self.sideADetailsLabel.text = self.sideADetailString;
     self.sideADetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideADetailsLabel.numberOfLines = 0;
-    self.sideBDetailsLabel.text = @"吃翔三斤";
+    self.sideBDetailsLabel.text = self.sideBDetailString;
     self.sideBDetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBDetailsLabel.numberOfLines = 0;
     
@@ -81,8 +81,37 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"clickButtonAtSide:%d",alertView.tag + 'A' - 1);
+    NSLog(@"clickButtonAtSide:%c",alertView.tag + 'A');
     NSLog(@"clickButtonAtIndex:%d",buttonIndex);
+    
+    
+    if (buttonIndex == 1) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *userName = [userDefaults stringForKey:@"username"];
+        
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+        
+        NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UserJoinBet"];
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+        NSString *params = [NSString stringWithFormat:@"name=%@&idBets=%ld&party=%ld", userName, self.idBets, alertView.tag + 1];
+        [urlRequest setHTTPMethod:@"POST"];
+        [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSLog(@"Response:%@ %@\n", response, error);
+            
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }
+            
+        }];
+        
+        [dataTask resume];
+    }
+
 }
 
 @end

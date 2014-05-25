@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BetAddViewController : UIViewController<UITextFieldDelegate,UIScrollViewDelegate>
+@interface BetAddViewController : UIViewController<UITextFieldDelegate,UIScrollViewDelegate, UIAlertViewDelegate>
 
 @property(nonatomic, weak) IBOutlet UIScrollView * myScrollView;
 @property(nonatomic) CGFloat oldContentOffsetValue;
 
 @property(nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl1;
-@property(nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl2;
 
 @property(nonatomic, weak) IBOutlet UITextField *renrenTextField1;
 @property(nonatomic, weak) IBOutlet UITextField *renrenTextField2;
@@ -28,13 +27,12 @@
 @property(nonatomic) BOOL isNeedSetOffset;
 
 @property (nonatomic,retain) UITextField * activeField;
-
-@property int size;
-@property (copy) void(^callback)(NSMutableDictionary *value1);
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 
 
 - (IBAction)toggleControls1:(id)sender;
-- (IBAction)toggleControls2:(id)sender;
 - (IBAction)pushCancel:(id)sender;
+- (IBAction)startBet:(id)sender;
 
 @end

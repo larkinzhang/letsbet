@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString *titleString, *sideAString, *sideBString, *sideADetailString, *sideBDetailString, *sideATitleString, *sideBTitleString;
 @property (nonatomic) NSUInteger sideAPopulation;
 @property (nonatomic) NSUInteger sideBPopulation;
+@property (nonatomic) NSInteger idBets;
+
 - (IBAction)sideAJoinButton:(id)sender;
 - (IBAction)sideBJoinButton:(id)sender;
 
