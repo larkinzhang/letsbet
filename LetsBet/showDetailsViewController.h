@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UMSocial.h"
 
 @interface showDetailsViewController : UIViewController
 
@@ -25,5 +26,6 @@
 
 - (IBAction)sideAJoinButton:(id)sender;
 - (IBAction)sideBJoinButton:(id)sender;
+- (IBAction)share:(id)sender;
 
 @end

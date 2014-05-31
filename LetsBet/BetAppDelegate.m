@@ -7,12 +7,15 @@
 //
 
 #import "BetAppDelegate.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
 
 @implementation BetAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [UMSocialData setAppKey:@"53842e1d56240be56a0b083d"];
     return YES;
 }
 							

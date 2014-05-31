@@ -79,6 +79,10 @@
     [myAlertView show];
 }
 
+- (IBAction)share:(id)sender {
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:@"53842e1d56240be56a0b083d" shareText:@"Hello world!" shareImage:nil shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina, UMShareToWechatSession, UMShareToRenren, nil] delegate:nil];
+}
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"clickButtonAtSide:%c",alertView.tag + 'A');

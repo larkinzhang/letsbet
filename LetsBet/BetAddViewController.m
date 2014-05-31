@@ -193,6 +193,8 @@
     }
     else
         self.isNeedSetOffset = NO;
+//    self.keyboardShown = YES;
+
     
 }
 
