@@ -150,6 +150,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92B7355E19325F6800EB1E84 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		D0797CA6192918DB00002349 = {
 			isa = PBXGroup;
 			children = (
@@ -347,9 +354,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Larkin;
 				TargetAttributes = {
-					D0797CAE192918DB00002349 = {
-						DevelopmentTeam = 2ZC6KG8JJ9;
-					};
 					D0797CCF192918DB00002349 = {
 						TestTargetID = D0797CAE192918DB00002349;
 					};
