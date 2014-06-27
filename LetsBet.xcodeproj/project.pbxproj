@@ -106,6 +106,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92B7355E19325F6800EB1E84 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		D0797CA6192918DB00002349 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 		D0797CB8192918DB00002349 /* LetsBet */ = {
 			isa = PBXGroup;
 			children = (
+				92B7355E19325F6800EB1E84 /* iPad */,
 				D0797CC1192918DB00002349 /* BetAppDelegate.h */,
 				D0797CC2192918DB00002349 /* BetAppDelegate.m */,
 				D0797D061932586E00002349 /* showDetailsViewController.h */,
@@ -244,9 +252,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Larkin;
 				TargetAttributes = {
-					D0797CAE192918DB00002349 = {
-						DevelopmentTeam = 2ZC6KG8JJ9;
-					};
 					D0797CCF192918DB00002349 = {
 						TestTargetID = D0797CAE192918DB00002349;
 					};
@@ -439,8 +444,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LetsBet/LetsBet-Prefix.pch";
 				INFOPLIST_FILE = "LetsBet/LetsBet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -455,8 +462,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LetsBet/LetsBet-Prefix.pch";
 				INFOPLIST_FILE = "LetsBet/LetsBet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -13,7 +13,8 @@
 @end
 
 @implementation MyBetTableViewController
-
+int tmpBets;
+NSMutableArray *MyBetArr;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -67,6 +68,7 @@
     }
 }
 
+
 - (void)getBetFromInternet
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -84,6 +86,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 NSArray *betArr = [dict valueForKey:@"result"];
+                MyBetArr = [NSMutableArray arrayWithArray:betArr];
                 NSLog(@"%@", betArr);
                 
                 self.userList = [[NSMutableArray alloc] init];
@@ -96,7 +99,8 @@
                     tmp.sumA = [[bet valueForKey:@"SumA"] integerValue];
                     tmp.sumB = [[bet valueForKey:@"SumB"] integerValue];
                     tmp.starter = [bet valueForKey:@"Sponsorer"];
-                    
+                    tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
+                    tmpBets = tmp.idBets;
                     [self.userList addObject:tmp];
                 }
                 
@@ -131,10 +135,50 @@
     cell.titleLabel.text = curBet.betName;
     cell.starterLabel.text = [NSString stringWithFormat:@"发起人: %@", curBet.starter];
     cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %ld", curBet.sumA + curBet.sumB];
+    cell.VoteA.tag = indexPath.row * 10;
+    cell.VoteB.tag = indexPath.row * 10 + 1;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+
+- (IBAction)P2:(id)sender {
+    NSLog(@"333");
+//    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:@"User_Name",@"vote",@"Bets_idBets",nil];
+
+//    UITableViewCell * cell = (UITableViewCell *)[sender superview];
+//    NSIndexPath * path = [self.tableView indexPathForCell:cell];
+    NSLog(@"index row%d", ((UIButton*)sender).tag);
+    int votes = ((UIButton*)sender).tag;
+    NSDictionary *s1 = [MyBetArr objectAtIndex:0];
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserVote"];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    tmpBets = [[s1 valueForKey:@"idBets"] integerValue];
+    [dictionary setValue:self.userName forKey:@"UserName"];
+    if (votes % 10 == 1)
+        [dictionary setValue:@"2" forKey:@"vote"];
+    else
+        [dictionary setValue:@"1" forKey:@"vote"];
+    [dictionary setValue:[NSString stringWithFormat:@"%d", tmpBets] forKey:@"Bets_idBets"];
+    NSError *error = nil;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+    
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    //    NSString* postURL = [NSString stringWithData:jsonData encoding:NSUTF8StringEncoding];
+    [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
+    NSString *str = @"type=focus-c";//设置参数
+    
+    //  [request setHTTPBody:jsonData];
+    [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+    [conn start];
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

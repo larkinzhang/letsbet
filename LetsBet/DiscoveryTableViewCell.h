@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DiscoveryTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *starterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
