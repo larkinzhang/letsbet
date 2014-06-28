@@ -207,14 +207,6 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    UIViewController *vc = (UIViewController *) segue.destinationViewController;
-    DiscoveryTableViewCell *cell = (DiscoveryTableViewCell *) sender;
-    
-    vc.title = cell.titleLabel.text;
-}
-- (IBAction)postBet:(id)sender {
-    BetAddViewController *view = [[BetAddViewController alloc] initWithNibName:@"BetAddViewController" bundle:nil];
-    [self presentViewController:view animated:YES completion:nil];
 }
 
 - (void)loginSuccess:(NSNotification *)notification

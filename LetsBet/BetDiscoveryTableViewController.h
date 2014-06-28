@@ -10,7 +10,6 @@
 #import "BetLoginViewController.h"
 #import "DiscoveryTableViewCell.h"
 #import "BetLoginViewController.h"
-#import "BetAddViewController.h"
 #import "BetInfo.h"
 #import "showDetailsViewController.h"
 

@@ -25,8 +25,6 @@
 		D0797CF61929D65B00002349 /* BetLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797CF41929D65B00002349 /* BetLoginViewController.m */; };
 		D0797CF71929D65B00002349 /* BetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0797CF51929D65B00002349 /* BetLoginViewController.xib */; };
 		D0797CFA1931CEF800002349 /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797CF91931CEF800002349 /* DiscoveryTableViewCell.m */; };
-		D0797CFE1931E1C900002349 /* BetAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797CFC1931E1C900002349 /* BetAddViewController.m */; };
-		D0797CFF1931E1C900002349 /* BetAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0797CFD1931E1C900002349 /* BetAddViewController.xib */; };
 		D0797D021932264E00002349 /* BetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D011932264E00002349 /* BetInfo.m */; };
 		D0797D05193249DE00002349 /* MyBetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D04193249DE00002349 /* MyBetTableViewCell.m */; };
 		D0797D091932586E00002349 /* showDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D071932586E00002349 /* showDetailsViewController.m */; };
@@ -44,6 +42,9 @@
 		D0797D30193465FC00002349 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0797D24193465FC00002349 /* UMSocialSDKResourcesNew.bundle */; };
 		D0797D3719346A1100002349 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797D3219346A1100002349 /* libSocialWechat.a */; };
 		D0797D3819346A1100002349 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797D3319346A1100002349 /* libWeChatSDK.a */; };
+		D0EE0D1B195EE97500A29DC2 /* BetAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D19195EE97500A29DC2 /* BetAddTableViewCell.m */; };
+		D0EE0D1F195EF1BB00A29DC2 /* BetAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D1E195EF1BB00A29DC2 /* BetAddTableViewController.m */; };
+		D0EE0D22195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D21195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +84,6 @@
 		D0797CF51929D65B00002349 /* BetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetLoginViewController.xib; sourceTree = "<group>"; };
 		D0797CF81931CEF800002349 /* DiscoveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewCell.h; sourceTree = "<group>"; };
 		D0797CF91931CEF800002349 /* DiscoveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewCell.m; sourceTree = "<group>"; };
-		D0797CFB1931E1C900002349 /* BetAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddViewController.h; sourceTree = "<group>"; };
-		D0797CFC1931E1C900002349 /* BetAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetAddViewController.m; sourceTree = "<group>"; };
-		D0797CFD1931E1C900002349 /* BetAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetAddViewController.xib; sourceTree = "<group>"; };
 		D0797D001932264E00002349 /* BetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetInfo.h; sourceTree = "<group>"; };
 		D0797D011932264E00002349 /* BetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetInfo.m; sourceTree = "<group>"; };
 		D0797D03193249DE00002349 /* MyBetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBetTableViewCell.h; sourceTree = "<group>"; };
@@ -121,6 +119,12 @@
 		D0797D3419346A1100002349 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		D0797D3519346A1100002349 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		D0797D3619346A1100002349 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		D0EE0D18195EE97500A29DC2 /* BetAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddTableViewCell.h; sourceTree = "<group>"; };
+		D0EE0D19195EE97500A29DC2 /* BetAddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetAddTableViewCell.m; sourceTree = "<group>"; };
+		D0EE0D1D195EF1BB00A29DC2 /* BetAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddTableViewController.h; sourceTree = "<group>"; };
+		D0EE0D1E195EF1BB00A29DC2 /* BetAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetAddTableViewController.m; sourceTree = "<group>"; };
+		D0EE0D20195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddSwitchTableViewCell.h; sourceTree = "<group>"; };
+		D0EE0D21195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetAddSwitchTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,13 +154,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		92B7355E19325F6800EB1E84 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
 		D0797CA6192918DB00002349 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +195,12 @@
 				D0797D071932586E00002349 /* showDetailsViewController.m */,
 				D0797D081932586E00002349 /* showDetailsViewController.xib */,
 				D0797CC4192918DB00002349 /* Main.storyboard */,
+				D0EE0D1D195EF1BB00A29DC2 /* BetAddTableViewController.h */,
+				D0EE0D1E195EF1BB00A29DC2 /* BetAddTableViewController.m */,
+				D0EE0D18195EE97500A29DC2 /* BetAddTableViewCell.h */,
+				D0EE0D19195EE97500A29DC2 /* BetAddTableViewCell.m */,
+				D0EE0D20195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.h */,
+				D0EE0D21195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m */,
 				D0797D03193249DE00002349 /* MyBetTableViewCell.h */,
 				D0797D04193249DE00002349 /* MyBetTableViewCell.m */,
 				D0797CF81931CEF800002349 /* DiscoveryTableViewCell.h */,
@@ -211,9 +214,6 @@
 				D0797CEE1929210500002349 /* BetDiscoveryTableViewController.m */,
 				D0797D001932264E00002349 /* BetInfo.h */,
 				D0797D011932264E00002349 /* BetInfo.m */,
-				D0797CFB1931E1C900002349 /* BetAddViewController.h */,
-				D0797CFC1931E1C900002349 /* BetAddViewController.m */,
-				D0797CFD1931E1C900002349 /* BetAddViewController.xib */,
 				D0797CCA192918DB00002349 /* Images.xcassets */,
 				D0797CB9192918DB00002349 /* Supporting Files */,
 			);
@@ -385,7 +385,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0797D0A1932586E00002349 /* showDetailsViewController.xib in Resources */,
-				D0797CFF1931E1C900002349 /* BetAddViewController.xib in Resources */,
 				D0797D2C193465FC00002349 /* UMShareEditViewControlleriPad.xib in Resources */,
 				D0797CCB192918DB00002349 /* Images.xcassets in Resources */,
 				D0797CBD192918DB00002349 /* InfoPlist.strings in Resources */,
@@ -419,13 +418,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0797D091932586E00002349 /* showDetailsViewController.m in Sources */,
-				D0797CFE1931E1C900002349 /* BetAddViewController.m in Sources */,
 				D0797CF61929D65B00002349 /* BetLoginViewController.m in Sources */,
+				D0EE0D1B195EE97500A29DC2 /* BetAddTableViewCell.m in Sources */,
 				D0797CC3192918DB00002349 /* BetAppDelegate.m in Sources */,
+				D0EE0D22195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m in Sources */,
 				D0797D021932264E00002349 /* BetInfo.m in Sources */,
 				D0797CF21929213900002349 /* MyBetTableViewController.m in Sources */,
 				D0797CBF192918DB00002349 /* main.m in Sources */,
 				D0797CFA1931CEF800002349 /* DiscoveryTableViewCell.m in Sources */,
+				D0EE0D1F195EF1BB00A29DC2 /* BetAddTableViewController.m in Sources */,
 				D0797CEF1929210500002349 /* BetDiscoveryTableViewController.m in Sources */,
 				D0797D05193249DE00002349 /* MyBetTableViewCell.m in Sources */,
 			);

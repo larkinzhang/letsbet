@@ -63,7 +63,7 @@
 
 - (IBAction)sideAJoinButton:(id)sender {
 
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否确认加入正方:" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否确认加入正方？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
     myAlertView.tag = 0;
     [myAlertView show];
@@ -73,7 +73,7 @@
 }
 
 - (IBAction)sideBJoinButton:(id)sender {
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否确认加入正方:" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否确认加入反方？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
     myAlertView.tag = 1;
     [myAlertView show];
