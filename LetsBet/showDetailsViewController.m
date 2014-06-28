@@ -52,7 +52,10 @@
     self.sideBDetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBDetailsLabel.numberOfLines = 0;
     
-    
+    if (self.needHidden) {
+        self.sideAJoin.hidden = YES;
+        self.sideBJoin.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning

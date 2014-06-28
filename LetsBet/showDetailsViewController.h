@@ -18,11 +18,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *sideBDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sideATitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sideBTitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sideAJoin;
+@property (weak, nonatomic) IBOutlet UIButton *sideBJoin;
 
 @property (nonatomic, strong) NSString *titleString, *sideAString, *sideBString, *sideADetailString, *sideBDetailString, *sideATitleString, *sideBTitleString;
 @property (nonatomic) NSUInteger sideAPopulation;
 @property (nonatomic) NSUInteger sideBPopulation;
 @property (nonatomic) NSInteger idBets;
+@property (nonatomic) BOOL needHidden;
 
 - (IBAction)sideAJoinButton:(id)sender;
 - (IBAction)sideBJoinButton:(id)sender;

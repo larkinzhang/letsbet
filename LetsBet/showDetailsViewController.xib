@@ -7,9 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="showDetailsViewController">
             <connections>
                 <outlet property="sideADetailsLabel" destination="d4P-Ge-Jhd" id="KWg-nM-45G"/>
+                <outlet property="sideAJoin" destination="2G5-cE-gfT" id="bJ3-E4-FnT"/>
                 <outlet property="sideALabel" destination="Ufa-4y-MQZ" id="aZG-nD-kzQ"/>
                 <outlet property="sideATitleLabel" destination="Glb-m9-VBW" id="qLb-xP-6e4"/>
                 <outlet property="sideBDetailsLabel" destination="gGS-y1-Mqb" id="1R2-s3-N9q"/>
+                <outlet property="sideBJoin" destination="ihl-vh-p6l" id="Zzj-1s-eiu"/>
                 <outlet property="sideBLabel" destination="r2L-UJ-pEj" id="23h-Dk-Ydh"/>
                 <outlet property="sideBTitleLabel" destination="X0H-Z2-XYI" id="RyX-MD-raG"/>
                 <outlet property="titleLabel" destination="X91-Ta-qyR" id="o8a-xV-cpJ"/>

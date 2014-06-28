@@ -191,8 +191,24 @@ NSMutableArray *MyBetArr;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger row = [indexPath row];
+    BetInfo *curBet = [self.userList objectAtIndex:row];
     
+    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
+    view.title = curBet.betName;
+    view.titleString = curBet.intro;
+    view.sideAString = curBet.voteA;
+    view.sideBString = curBet.voteB;
+    view.sideAPopulation = curBet.sumA;
+    view.sideBPopulation = curBet.sumB;
+    view.idBets = curBet.idBets;
+    //    view.sideADetailString = curBet.penaltyA;
+    //    view.sideBDetailString = curBet.penaltyB;
+    view.needHidden = YES;
+    
+    [self.navigationController pushViewController:view animated:YES];
 }
+
 
 /*
 // Override to support conditional editing of the table view.
