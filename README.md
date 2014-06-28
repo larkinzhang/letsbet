@@ -17,11 +17,4 @@ Letsbet_database:
 由于服务器端限定了数据库为Mysql，具体使用是在mysql上将这几个SQL文件执行。
 
 LetsBet.xcodeproj:
-由于App Store我们还在申请中，所以client端是连接手机，使用xcode编译这个工程，就能在手机上
-装上我们的APP了
-
-
-================================================================================
-//  Created by LetsBet Group on 5/26/14.
-
-//  Copyright (c) 2014 PlutoShe. All rights reserved.
+测试阶段，暂时无法在App Store上架，现在只能使用Xcode编译这个工程，然后传到手机上
