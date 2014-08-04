@@ -8,6 +8,39 @@ var conn = mysql.createConnection({
     database:'LB',
     port: 3306
 });
+router.post('/Login', function(req, res) {
+    var tmp = [
+        req.body['name'],
+    ];
+    conn.beginTransaction(function(err) {
+        if (err) { ; }
+        conn.query('Select * from User where UserName=?', tmp, function(err, result) {
+
+            if (err) { 
+                conn.rollback(function() {
+                    ;
+                     
+                });
+                
+            }
+            conn.commit(function(err) {
+                if (err) { 
+                    conn.rollback(function() {
+                        ;
+                        
+                    });
+                
+                }
+                console.log('success!');
+                
+                //return result;
+
+                res.send('1');
+
+            });
+        });  
+    });  
+});
 
 router.post('/CreateUser', function(req, res) {
     var tmp = [
@@ -118,7 +151,7 @@ router.post('/UserJoinBet', function(req, res) {
                     });
                 
                 }
-                console.log('success!');
+                console.log(stringify(result));
                 
                 res.send(1);
                 

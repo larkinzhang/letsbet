@@ -42,6 +42,10 @@ extern NSString *LoginSuccessNotification;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)signUp:(id)sender {
+    
+}
+
 - (IBAction)login:(id)sender {
     /*
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];

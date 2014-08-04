@@ -567,6 +567,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LetsBet/LetsBet-Prefix.pch";
 				INFOPLIST_FILE = "LetsBet/LetsBet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LetsBet/UMSocial_Sdk_3.3.8",
@@ -574,6 +575,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2B716A29-2ADB-4C71-B093-9FAAAD29F678";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -588,6 +590,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LetsBet/LetsBet-Prefix.pch";
 				INFOPLIST_FILE = "LetsBet/LetsBet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LetsBet/UMSocial_Sdk_3.3.8",
@@ -595,6 +598,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2B716A29-2ADB-4C71-B093-9FAAAD29F678";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

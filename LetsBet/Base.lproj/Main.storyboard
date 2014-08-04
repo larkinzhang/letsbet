@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PmL-C5-lgL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PmL-C5-lgL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Bet Discovery Table View Controller - 发现-->
@@ -318,11 +318,12 @@
                     <connections>
                         <segue destination="ueO-U7-oev" kind="relationship" relationship="viewControllers" id="Q0J-pv-kUn"/>
                         <segue destination="Dnu-kL-FXS" kind="relationship" relationship="viewControllers" id="4cg-SG-h4y"/>
+                        <segue destination="bCc-C7-KgC" kind="relationship" relationship="viewControllers" id="f2A-u1-x5x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJX-qD-swd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1387" y="-265"/>
+            <point key="canvasLocation" x="-1331" y="-117"/>
         </scene>
         <!--Navigation Controller - 我的赌局-->
         <scene sceneID="sGx-Vj-eB9">
@@ -444,8 +445,104 @@
             </objects>
             <point key="canvasLocation" x="206" y="-397"/>
         </scene>
+        <!--Navigation Controller - 未完成赌局-->
+        <scene sceneID="ZlL-z3-gho">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCc-C7-KgC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="未完成赌局" image="UMS_sms_on.png" id="9cX-aK-UTp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="otj-Ny-SIi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Xv-JI-d8e" kind="relationship" relationship="rootViewController" id="mKx-4z-iEg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LrC-k5-YsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-779" y="1057"/>
+        </scene>
+        <!--Table View Controller - 未完成赌局-->
+        <scene sceneID="zSf-yG-dDo">
+            <objects>
+                <tableViewController id="0Xv-JI-d8e" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="93" sectionHeaderHeight="10" sectionFooterHeight="10" id="95t-jR-vfs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mybetcellIdentifier" rowHeight="93" id="aKV-CA-tfE" customClass="MyBetTableViewCell">
+                                <rect key="frame" x="0.0" y="119" width="320" height="93"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aKV-CA-tfE" id="VSr-rB-ped">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="92"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewM-DN-fdj">
+                                            <rect key="frame" x="20" y="13" width="267" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你所属方：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezo-7O-gVT">
+                                            <rect key="frame" x="20" y="40" width="247" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-cq-wAn">
+                                            <rect key="frame" x="215" y="31" width="52" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="已完成">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="P2:" destination="0Xv-JI-d8e" eventType="touchUpInside" id="RsI-D2-Ey8"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQX-SM-OpN">
+                                            <rect key="frame" x="218" y="57" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="未完成">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="P2:" destination="0Xv-JI-d8e" eventType="touchUpInside" id="HbT-Na-MKM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="VoteA" destination="UwX-cq-wAn" id="bkg-Lt-Uyb"/>
+                                    <outlet property="VoteB" destination="cQX-SM-OpN" id="o7l-hr-SMn"/>
+                                    <outlet property="numberLabel" destination="ezo-7O-gVT" id="oot-ft-2ey"/>
+                                    <outlet property="titleLabel" destination="ewM-DN-fdj" id="8wl-px-BV3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Xv-JI-d8e" id="rDd-x5-AdM"/>
+                            <outlet property="delegate" destination="0Xv-JI-d8e" id="77V-BK-zIW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="未完成赌局" id="HLg-KI-xCM"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Qym-hK-o1Z">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="0Xv-JI-d8e" eventType="valueChanged" id="5xd-as-vua"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXA-fA-Z8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-312" y="1005"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="UMS_sms_on.png" width="39" height="39"/>
         <image name="compass" width="33" height="30"/>
         <image name="user" width="25" height="26"/>
     </resources>
