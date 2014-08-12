@@ -7,7 +7,7 @@
 //
 
 #import "BetLoginViewController.h"
-
+#import "SignUpViewController.h"
 extern NSString *LoginSuccessNotification;
 
 @interface BetLoginViewController ()
@@ -15,7 +15,7 @@ extern NSString *LoginSuccessNotification;
 @end
 
 @implementation BetLoginViewController
-
+SignUpViewController *sub1;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,6 +44,44 @@ extern NSString *LoginSuccessNotification;
 
 - (IBAction)signUp:(id)sender {
     
+    
+    
+    sub1 = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+//    view.title = curBet.betName;
+    //    view.sideADetailString = curBet.penaltyA;
+    //    view.sideBDetailString = curBet.penaltyB;
+//    view.needHidden = YES;
+    
+//    [self.navigationController pushViewController:view animated:YES];
+//    UIView *rootView = [[[NSBundle mainBundle] loadNibNamed:@"BetLoginViewController" owner:self options:nil] objectAtIndex:0];
+//    UIView *containerView = [[[NSBundle mainBundle] loadNibNamed:@"SignUpViewController" owner:self options:nil] lastObject];
+//    [rootView addSubview:view];
+    [self.view addSubview:sub1.view];
+//    [view.view addSubview:self.view];
+//    SignUpViewController * containerView = [[SignUpViewController alloc]
+//                                        
+//                                        initWithNibName:@"SignUpViewController" bundle:nil];
+//    [view release];
+//
+//    [rootView addSubview:containerView];
+//    [containerView release];
+    
+
+    
+//    SignUpViewController sub1 = [UIViewController init] initWithNibName:" bundle:<#(NSBundle *)#>
+//    NSArray* nibViews =  [[NSBundle mainBundle] loadibNamed:@"SignUpViewController" owner:self options:nil];
+//
+//     *subView = [nibViews objectAtIndex:0];
+//
+//    [self.view addSubview:subView];
+//    
+//    
+//    In your view controller do:
+//        
+//        [[NSBundle mainBundle] loadNibNamed:@"AboutUsView" owner:self options:nil]; // Retains top level items
+//    [self.view addSubview:aboutUsView];  // Retains the view
+//    [aboutUsView release];
+
 }
 
 - (IBAction)login:(id)sender {
@@ -53,12 +91,51 @@ extern NSString *LoginSuccessNotification;
     [nc postNotificationName:LoginSuccessNotification object:self userInfo:userInfo];
     */
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.accountField.text forKey:@"username"];
-    [userDefaults setObject:self.passwordField.text forKey:@"password"];
-    [userDefaults synchronize];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/Login"];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString *params = [NSString stringWithFormat:@"name=%@&password=%@", self.accountField.text,self.passwordField.text];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"Response:%@ %@\n", response, error);
+        
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSString *ans = [dict valueForKey:@"ans"];
+                NSLog(@"!!!!%@", ans);
+                if ([ans isEqualToString:@"0"]) {
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                } else {
+                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                    [userDefaults setObject:self.accountField.text forKey:@"username"];
+                    [userDefaults setObject:self.passwordField.text forKey:@"password"];
+                    [userDefaults synchronize];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+
+                }
+            });
+        } else {
+        }
+        
+    }];
+    
+
+    
+
+    
+    [dataTask resume];
+    
+    
 }
 
 - (void)keyboardHide:(UITapGestureRecognizer*)tap{

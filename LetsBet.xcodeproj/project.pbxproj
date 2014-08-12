@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921901CE1997A5B300D15A77 /* UnfinishedBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921901CD1997A5B300D15A77 /* UnfinishedBetViewController.m */; };
+		921901D11997B20500D15A77 /* UnfinishedBetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921901D01997B20500D15A77 /* UnfinishedBetCell.m */; };
+		921901D3199A171400D15A77 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921901D2199A171400D15A77 /* SignUpViewController.xib */; };
+		921901D6199A29B300D15A77 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921901D5199A29B300D15A77 /* SignUpViewController.m */; };
 		D0797CB3192918DB00002349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB2192918DB00002349 /* Foundation.framework */; };
 		D0797CB5192918DB00002349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB4192918DB00002349 /* CoreGraphics.framework */; };
 		D0797CB7192918DB00002349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB6192918DB00002349 /* UIKit.framework */; };
@@ -58,6 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		921901CC1997A5B300D15A77 /* UnfinishedBetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfinishedBetViewController.h; sourceTree = "<group>"; };
+		921901CD1997A5B300D15A77 /* UnfinishedBetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfinishedBetViewController.m; sourceTree = "<group>"; };
+		921901CF1997B20500D15A77 /* UnfinishedBetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfinishedBetCell.h; sourceTree = "<group>"; };
+		921901D01997B20500D15A77 /* UnfinishedBetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfinishedBetCell.m; sourceTree = "<group>"; };
+		921901D2199A171400D15A77 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		921901D4199A29B300D15A77 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		921901D5199A29B300D15A77 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		D0797CAF192918DB00002349 /* LetsBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0797CB2192918DB00002349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0797CB4192918DB00002349 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,8 +219,15 @@
 				D0797CF31929D65B00002349 /* BetLoginViewController.h */,
 				D0797CF41929D65B00002349 /* BetLoginViewController.m */,
 				D0797CF51929D65B00002349 /* BetLoginViewController.xib */,
+				921901D4199A29B300D15A77 /* SignUpViewController.h */,
+				921901D5199A29B300D15A77 /* SignUpViewController.m */,
+				921901D2199A171400D15A77 /* SignUpViewController.xib */,
+				921901CF1997B20500D15A77 /* UnfinishedBetCell.h */,
+				921901D01997B20500D15A77 /* UnfinishedBetCell.m */,
 				D0797CF01929213900002349 /* MyBetTableViewController.h */,
 				D0797CF11929213900002349 /* MyBetTableViewController.m */,
+				921901CC1997A5B300D15A77 /* UnfinishedBetViewController.h */,
+				921901CD1997A5B300D15A77 /* UnfinishedBetViewController.m */,
 				D0797CED1929210500002349 /* BetDiscoveryTableViewController.h */,
 				D0797CEE1929210500002349 /* BetDiscoveryTableViewController.m */,
 				D0797D001932264E00002349 /* BetInfo.h */,
@@ -398,6 +416,7 @@
 				D0797D2B193465FC00002349 /* UMShareEditViewController.xib in Resources */,
 				D0797D2A193465FC00002349 /* UMSCommentInputControlleriPad.xib in Resources */,
 				D0797D26193465FC00002349 /* UMSocialLocalizable.strings in Resources */,
+				921901D3199A171400D15A77 /* SignUpViewController.xib in Resources */,
 				D0797D2E193465FC00002349 /* UMSnsAccountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +438,7 @@
 			files = (
 				D0797D091932586E00002349 /* showDetailsViewController.m in Sources */,
 				D0797CF61929D65B00002349 /* BetLoginViewController.m in Sources */,
+				921901CE1997A5B300D15A77 /* UnfinishedBetViewController.m in Sources */,
 				D0EE0D1B195EE97500A29DC2 /* BetAddTableViewCell.m in Sources */,
 				D0797CC3192918DB00002349 /* BetAppDelegate.m in Sources */,
 				D0EE0D22195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m in Sources */,
@@ -427,7 +447,9 @@
 				D0797CBF192918DB00002349 /* main.m in Sources */,
 				D0797CFA1931CEF800002349 /* DiscoveryTableViewCell.m in Sources */,
 				D0EE0D1F195EF1BB00A29DC2 /* BetAddTableViewController.m in Sources */,
+				921901D6199A29B300D15A77 /* SignUpViewController.m in Sources */,
 				D0797CEF1929210500002349 /* BetDiscoveryTableViewController.m in Sources */,
+				921901D11997B20500D15A77 /* UnfinishedBetCell.m in Sources */,
 				D0797D05193249DE00002349 /* MyBetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ var conn = mysql.createConnection({
 router.post('/Login', function(req, res) {
     var tmp = [
         req.body['name'],
+        req.body['password']
     ];
     conn.beginTransaction(function(err) {
         if (err) { ; }
@@ -32,10 +33,21 @@ router.post('/Login', function(req, res) {
                 
                 }
                 console.log('success!');
-                
-                //return result;
+                console.log(result);
+                console.log(req.body['password']);
+                var user0 = {
+                    ans : "0"
+                };
+                var user1 = {
+                    ans : "1"
+                };
 
-                res.send('1');
+                var userString0 = JSON.stringify(user0);
+                var userString1 = JSON.stringify(user1);
+                if (result.length != 0 && result[0]['Password'] == req.body['password'])
+                	res.send(userString1);
+                else res.send(userString0);
+
 
             });
         });  
@@ -49,11 +61,15 @@ router.post('/CreateUser', function(req, res) {
         req.body['rrname'],
         req.body['rrpassword']
     ];
-    console.log(conn.format('Insert into User Value(?,?,?,?)', tmp));
-    console.log(tmp);
+    var tmp1 = [
+        req.body['name'],
+
+    ];
+    //console.log(conn.format('Insert into User Value(?,?,?,?)', tmp));
+    //console.log(tmp);
     conn.beginTransaction(function(err) {
         if (err) { ; }
-        conn.query('Insert into User Value(?,?,?,?)', tmp, function(err, result) {
+        conn.query('Select * from User where UserName=?', tmp1, function(err, result) {
 
             if (err) { 
                 conn.rollback(function() {
@@ -70,11 +86,44 @@ router.post('/CreateUser', function(req, res) {
                     });
                 
                 }
-                console.log('success!');
                 
-                //return result;
-                res.send('1');
+                console.log('success!');
+                var user0 = {
+                    ans : "0"
+                };
+                var user1 = {
+                    ans : "1"
+                };
 
+                var userString0 = JSON.stringify(user0);
+                var userString1 = JSON.stringify(user1);
+                if (result.length == 0) {
+                    conn.query('insert into User Value(?,?,?,?)', tmp, function(err, result) {
+
+                                if (err) { 
+                                    conn.rollback(function() {
+                                        ;
+                                         
+                                    });
+                                    
+                                }
+                                conn.commit(function(err) {
+                                    if (err) { 
+                                        conn.rollback(function() {
+                                            ;
+                                            
+                                        });
+                                    
+                                    }
+                                    res.send(userString1);
+                                
+
+                                });
+                            });                      
+                    
+                }
+                else res.send(userString0);
+                
             });
         });  
     });  
@@ -134,7 +183,7 @@ router.post('/UserJoinBet', function(req, res) {
     ];
     conn.beginTransaction(function(err) {
         if (err) { ; }
-        conn.query('Insert into User_has_Bets value(?,?,?,?,?)', tmp, function(err, result) {
+        conn.query('call userJoinBet(?,?,?,?,?)', tmp, function(err, result) {
 
             if (err) { 
                 conn.rollback(function() {
@@ -151,7 +200,7 @@ router.post('/UserJoinBet', function(req, res) {
                     });
                 
                 }
-                console.log(stringify(result));
+                //console.log(stringify(result));
                 
                 res.send(1);
                 
@@ -250,7 +299,7 @@ router.post('/QueryNeedConfirmBets', function(req, res) {
     
     conn.beginTransaction(function(err) {
         if (err) { ; }
-        conn.query('call QueryBets(?, ?, ?)', tmp, function(err, result) {
+        conn.query('call ConfirmQueryBets(?, ?, ?)', tmp, function(err, result) {
 
             if (err) { 
                 conn.rollback(function() {
@@ -360,6 +409,7 @@ router.post('/UpdateUserVote', function(req, res) {
                             });
                         
                         }
+                        console.log("renren");
                         console.log(result);
                         if (result.length > 1) {
                             for (var i = 0; i < result[0].length ; i++) {

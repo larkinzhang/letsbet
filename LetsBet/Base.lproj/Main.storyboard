@@ -348,16 +348,16 @@
         <scene sceneID="qT6-Mu-pa5">
             <objects>
                 <tableViewController id="mNI-Jd-hjA" customClass="MyBetTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="93" sectionHeaderHeight="10" sectionFooterHeight="10" id="hfz-gX-w07">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="133" sectionHeaderHeight="10" sectionFooterHeight="10" id="hfz-gX-w07">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mybetcellIdentifier" rowHeight="93" id="AHK-pK-Hg3" customClass="MyBetTableViewCell">
-                                <rect key="frame" x="0.0" y="119" width="320" height="93"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mybetcellIdentifier" rowHeight="133" id="AHK-pK-Hg3" customClass="MyBetTableViewCell">
+                                <rect key="frame" x="0.0" y="119" width="320" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AHK-pK-Hg3" id="PxA-C5-tlj">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="92"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="132"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-SA-web">
@@ -380,9 +380,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzj-uN-W38">
-                                            <rect key="frame" x="215" y="31" width="40" height="30"/>
+                                            <rect key="frame" x="209" y="61" width="45" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="A方赢">
+                                            <state key="normal" title="正方赢">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -390,15 +390,27 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6q-Tp-ykQ">
-                                            <rect key="frame" x="212" y="58" width="46" height="30"/>
+                                            <rect key="frame" x="209" y="95" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="B方赢">
+                                            <state key="normal" title="反方赢">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="P2:" destination="mNI-Jd-hjA" eventType="touchUpInside" id="MtS-Bg-GBT"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="反方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqy-8U-bmU">
+                                            <rect key="frame" x="20" y="104" width="186" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="正方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-e9-U5O">
+                                            <rect key="frame" x="21" y="83" width="185" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -407,6 +419,8 @@
                                     <outlet property="numberLabel" destination="3KT-HP-LeV" id="xWM-Qp-8on"/>
                                     <outlet property="starterLabel" destination="Miw-Hi-ru7" id="pgK-bX-7bN"/>
                                     <outlet property="titleLabel" destination="2e9-SA-web" id="qGT-87-yiI"/>
+                                    <outlet property="voteALabel" destination="ai8-e9-U5O" id="f0G-55-arW"/>
+                                    <outlet property="voteBLabel" destination="vqy-8U-bmU" id="6hV-fY-cRG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -464,16 +478,16 @@
             </objects>
             <point key="canvasLocation" x="-779" y="1057"/>
         </scene>
-        <!--Table View Controller - 未完成赌局-->
+        <!--Unfinished Bet View Controller - 未完成赌局-->
         <scene sceneID="zSf-yG-dDo">
             <objects>
-                <tableViewController id="0Xv-JI-d8e" sceneMemberID="viewController">
+                <tableViewController id="0Xv-JI-d8e" customClass="UnfinishedBetViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="93" sectionHeaderHeight="10" sectionFooterHeight="10" id="95t-jR-vfs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mybetcellIdentifier" rowHeight="93" id="aKV-CA-tfE" customClass="MyBetTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="unfinishBetCell" rowHeight="93" id="aKV-CA-tfE" customClass="UnfinishedBetCell">
                                 <rect key="frame" x="0.0" y="119" width="320" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aKV-CA-tfE" id="VSr-rB-ped">
@@ -494,7 +508,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-cq-wAn">
-                                            <rect key="frame" x="215" y="31" width="52" height="30"/>
+                                            <rect key="frame" x="215" y="57" width="52" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="已完成">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -503,23 +517,20 @@
                                                 <action selector="P2:" destination="0Xv-JI-d8e" eventType="touchUpInside" id="RsI-D2-Ey8"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQX-SM-OpN">
-                                            <rect key="frame" x="218" y="57" width="46" height="30"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="剩余确认人数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1t-NL-NLm">
+                                            <rect key="frame" x="20" y="66" width="102" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="未完成">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="P2:" destination="0Xv-JI-d8e" eventType="touchUpInside" id="HbT-Na-MKM"/>
-                                            </connections>
-                                        </button>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="VoteA" destination="UwX-cq-wAn" id="bkg-Lt-Uyb"/>
-                                    <outlet property="VoteB" destination="cQX-SM-OpN" id="o7l-hr-SMn"/>
-                                    <outlet property="numberLabel" destination="ezo-7O-gVT" id="oot-ft-2ey"/>
-                                    <outlet property="titleLabel" destination="ewM-DN-fdj" id="8wl-px-BV3"/>
+                                    <outlet property="finishButton" destination="UwX-cq-wAn" id="Kdg-pb-HPw"/>
+                                    <outlet property="partyLabel" destination="ezo-7O-gVT" id="ols-1j-t8Z"/>
+                                    <outlet property="remain" destination="c1t-NL-NLm" id="VCQ-bt-S3s"/>
+                                    <outlet property="titleLabel" destination="ewM-DN-fdj" id="afS-Gs-WN1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -538,7 +549,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXA-fA-Z8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-312" y="1005"/>
+            <point key="canvasLocation" x="-292" y="1057"/>
         </scene>
     </scenes>
     <resources>

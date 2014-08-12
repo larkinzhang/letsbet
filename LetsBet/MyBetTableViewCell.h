@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UIButton *VoteA;
 @property (weak, nonatomic) IBOutlet UIButton *VoteB;
+@property (weak, nonatomic) IBOutlet UILabel *voteALabel;
+@property (weak, nonatomic) IBOutlet UILabel *voteBLabel;
 
 @end

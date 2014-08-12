@@ -11,6 +11,6 @@
 @interface BetInfo : NSObject
 
 @property (atomic, strong) NSString *betName, *intro, *voteA, *voteB, *starter, *penaltyA, *penaltyB;
-@property (atomic) NSInteger sumA, sumB, idBets;
+@property (atomic) NSInteger sumA, sumB, idBets, voteASum, voteBSum, party, penaltyParty;
 
 @end

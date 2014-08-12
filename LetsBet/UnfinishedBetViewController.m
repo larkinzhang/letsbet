@@ -1,18 +1,18 @@
 //
-//  MyBetTableViewController.m
+//  UnfinishedBetViewController.m
 //  LetsBet
 //
-//  Created by 张亦弛 on 14-5-19.
-//  Copyright (c) 2014年 Larkin. All rights reserved.
+//  Created by PlutoShe on 8/10/14.
+//  Copyright (c) 2014 Larkin. All rights reserved.
 //
 
-#import "MyBetTableViewController.h"
+#import "UnfinishedBetViewController.h"
 
-@interface MyBetTableViewController ()
+@interface UnfinishedBetViewController ()
 
 @end
 
-@implementation MyBetTableViewController
+@implementation UnfinishedBetViewController
 int tmpBets;
 NSMutableArray *MyBetArr;
 - (id)initWithStyle:(UITableViewStyle)style
@@ -74,7 +74,7 @@ NSMutableArray *MyBetArr;
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/QueryUserBets"];
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/QueryNeedConfirmBets"];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@", self.userName];
     [urlRequest setHTTPMethod:@"POST"];
@@ -94,14 +94,11 @@ NSMutableArray *MyBetArr;
                     BetInfo *tmp = [[BetInfo alloc] init];
                     tmp.betName = [bet valueForKey:@"BetName"];
                     tmp.intro = [bet valueForKey:@"Introduction"];
-                    tmp.voteA = [bet valueForKey:@"PenaltyA"];
-                    tmp.voteB = [bet valueForKey:@"PenaltyB"];
-                    tmp.voteASum = [[bet valueForKey: @"VoteA" ]integerValue];
-                    tmp.voteBSum = [[bet valueForKey: @"VoteB" ]integerValue];
-                    tmp.sumA = [[bet valueForKey:@"SumA"] integerValue];
-                    tmp.sumB = [[bet valueForKey:@"SumB"] integerValue];
-                    tmp.starter = [bet valueForKey:@"Sponsorer"];
+                    tmp.sumA = [[bet valueForKey:@"Confirm"] integerValue];
+
                     tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
+                    tmp.party = [[bet valueForKey:@"Party"] integerValue];
+                    tmp.penaltyParty = [[bet valueForKey:@"PenaltyParty" ]integerValue];
                     tmpBets = tmp.idBets;
                     [self.userList addObject:tmp];
                 }
@@ -118,9 +115,9 @@ NSMutableArray *MyBetArr;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyBetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mybetcellIdentifier" forIndexPath:indexPath];
+    UnfinishedBetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"unfinishBetCell" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[MyBetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mybetcellIdentifier"];
+        cell = [[UnfinishedBetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"unfinishBetCell"];
     }
     
     NSInteger section = [indexPath section];
@@ -135,12 +132,24 @@ NSMutableArray *MyBetArr;
     
     // Configure the cell...
     cell.titleLabel.text = curBet.betName;
-    cell.starterLabel.text = [NSString stringWithFormat:@"发起人: %@", curBet.starter];
-    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %d", curBet.sumA + curBet.sumB];
-    cell.VoteA.tag = indexPath.row * 10;
-    cell.VoteB.tag = indexPath.row * 10 + 1;
-    cell.voteALabel.text = [NSString stringWithFormat:@"正方票数: %d", curBet.voteASum];
-    cell.voteBLabel.text = [NSString stringWithFormat:@"反方票数: %d", curBet.voteBSum];
+//    cell.partyLabel.text = [NSString stringWithFormat:@"发起人: %@", curBet.starter];
+//    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %ld", curBet.sumA + curBet.sumB];
+//    cell.VoteA.tag = indexPath.row * 10;
+
+    cell.finishButton.tag = indexPath.row * 10;
+
+    if (curBet.party != curBet.penaltyParty) {
+        cell.finishButton.hidden = YES;
+        cell.partyLabel.text = [NSString stringWithFormat:@"所属方：败方"];
+        
+    }
+    else {
+        cell.finishButton.hidden = NO;
+        cell.partyLabel.text = [NSString stringWithFormat:@"所属方：胜方"];
+    }
+    cell.remain.text = [NSString stringWithFormat:@"剩余确认人数：%d", curBet.sumA];
+    
+ //   if (curBet.penaltyA !=)
 
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -149,26 +158,21 @@ NSMutableArray *MyBetArr;
 
 - (IBAction)P2:(id)sender {
     NSLog(@"333");
-//    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:@"User_Name",@"vote",@"Bets_idBets",nil];
-
-//    UITableViewCell * cell = (UITableViewCell *)[sender superview];
-//    NSIndexPath * path = [self.tableView indexPathForCell:cell];
-    NSLog(@"index row %d\n", ((UIButton*)sender).tag);
-    int votes = ((UIButton*)sender).tag;
-//    NSLog(@"index row %d\n", votes);
-//    BetInfo *curBet = [self.userList objectAtIndex:row];
+    //    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:@"User_Name",@"vote",@"Bets_idBets",nil];
     
+    //    UITableViewCell * cell = (UITableViewCell *)[sender superview];
+    //    NSIndexPath * path = [self.tableView indexPathForCell:cell];
+    NSLog(@"index row%d", ((UIButton*)sender).tag);
+    int votes = ((UIButton*)sender).tag;
     NSDictionary *s1 = [MyBetArr objectAtIndex:votes/10];
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserVote"];
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserConfirmation"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     tmpBets = [[s1 valueForKey:@"idBets"] integerValue];
     [dictionary setValue:self.userName forKey:@"UserName"];
-    if (votes % 10 == 1)
-        [dictionary setValue:@"2" forKey:@"vote"];
-    else
-        [dictionary setValue:@"1" forKey:@"vote"];
     [dictionary setValue:[NSString stringWithFormat:@"%d", tmpBets] forKey:@"Bets_idBets"];
-    NSLog(@"!!tmpBets: %d\n", tmpBets);
+    [dictionary setValue:@"1" forKey:@"confirm"];
+ 
+
     NSError *error = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     
@@ -202,70 +206,70 @@ NSMutableArray *MyBetArr;
     NSInteger row = [indexPath row];
     BetInfo *curBet = [self.userList objectAtIndex:row];
     
-    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
-    view.title = curBet.betName;
-    view.titleString = curBet.intro;
-    view.sideAString = curBet.voteA;
-    view.sideBString = curBet.voteB;
-    view.sideAPopulation = curBet.sumA;
-    view.sideBPopulation = curBet.sumB;
-    view.idBets = curBet.idBets;
+//    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
+//    view.title = curBet.betName;
+//    view.titleString = curBet.intro;
+//    view.sideAString = curBet.voteA;
+//    view.sideBString = curBet.voteB;
+//    view.sideAPopulation = curBet.sumA;
+//    view.sideBPopulation = curBet.sumB;
+//    view.idBets = curBet.idBets;
     //    view.sideADetailString = curBet.penaltyA;
     //    view.sideBDetailString = curBet.penaltyB;
-    view.needHidden = YES;
+//    view.needHidden = YES;
     
-    [self.navigationController pushViewController:view animated:YES];
+//    [self.navigationController pushViewController:view animated:YES];
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)refresh:(id)sender {
     NSLog(@"refreshing mybet...");
@@ -273,3 +277,5 @@ NSMutableArray *MyBetArr;
 }
 
 @end
+
+

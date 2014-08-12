@@ -37,6 +37,7 @@ app.post('/UpdateUserConfirmation', query);
 app.post('/UpdateUserVote', query);
 app.post('/Login', query);
 
+
 /// catch 404 and forwarding to error handler
 /*app.use(function(req, res, next) {
     var err = new Error('Not Found');
