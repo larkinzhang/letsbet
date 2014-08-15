@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="14A299l" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BetLoginViewController">
@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HN2-77-jKC" userLabel="密码组">
-                    <rect key="frame" x="0.0" y="234" width="320" height="55"/>
+                    <rect key="frame" x="0.0" y="268" width="320" height="55"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-bz-FMt">
@@ -44,7 +44,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="so5-cv-dYm" userLabel="账号组">
-                    <rect key="frame" x="0.0" y="187" width="320" height="56"/>
+                    <rect key="frame" x="0.0" y="221" width="320" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="xal-JZ-zm3">
@@ -71,7 +71,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRL-RA-UrK">
-                    <rect key="frame" x="15" y="324" width="290" height="44"/>
+                    <rect key="frame" x="15" y="358" width="290" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="login_btn">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,12 +80,8 @@
                         <action selector="login:" destination="-1" eventType="touchUpInside" id="Ih2-Hp-zUf"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-WN-TRP">
-                    <rect key="frame" x="63" y="97" width="194" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-mQ-rnJ">
-                    <rect key="frame" x="265" y="280" width="30" height="30"/>
+                    <rect key="frame" x="265" y="314" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -95,15 +91,19 @@
                         <action selector="signUp:" destination="-1" eventType="touchUpInside" id="xjH-Qh-jf6"/>
                     </connections>
                 </button>
+                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lb2" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-x0-3N3">
+                    <rect key="frame" x="99" y="81" width="122" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.011348906053028695" green="0.69816033096538754" blue="0.8816964285714286" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.23529411764705882" green="0.36078431372549019" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
+        <image name="lb2" width="1000" height="1000"/>
         <image name="login_btn" width="290" height="44"/>
         <image name="login_textfield" width="13" height="45"/>
-        <image name="logo" width="496" height="207"/>
     </resources>
 </document>
