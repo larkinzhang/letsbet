@@ -2,17 +2,26 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var conn = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: '',
-    database:'LB',
+    password: 'a',
+    database:'lb',
     port: 3306
 });
 router.post('/Login', function(req, res) {
     var tmp = [
         req.body['name'],
-        req.body['password']
+        //req.body['password']
     ];
+    /*if (req.body['name'] == undefined) {
+         var user0 = {
+                    ans : "0"
+                };
+                
+        var userString0 = JSON.stringify(user0);
+        res.send(userString0);
+    }*/
+    console.log(conn.format('Select * from User where UserName=?', tmp));
     conn.beginTransaction(function(err) {
         if (err) { ; }
         conn.query('Select * from User where UserName=?', tmp, function(err, result) {
@@ -32,9 +41,9 @@ router.post('/Login', function(req, res) {
                     });
                 
                 }
-                console.log('success!');
+                console.log('Login success!');
                 console.log(result);
-                console.log(req.body['password']);
+                // console.log(req.body['password']);
                 var user0 = {
                     ans : "0"
                 };
@@ -239,7 +248,7 @@ router.post('/QueryUserBets', function(req, res) {
                     });
                 
                 }
-                console.log('success!');
+                console.log('Query success!');
                 console.log(result);
                 var tmp = { 'result' : result[0]};
                 var userString = JSON.stringify(tmp);

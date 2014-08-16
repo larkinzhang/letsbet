@@ -364,7 +364,7 @@ BEGIN
 		Inner join Bets As C On B.Bets_idBets = C.idBets) Where finish = 0 Group by idBets;
 	*/
 	select * from Bets inner join User_has_Bets on Bets.idBets = User_has_Bets.Bets_idBets 
-	where Bet.Finish = 1 And User_has_Bets.User_Name = p_UserName And User_has_Bets.UserConfirm = 0;
+	where Bets.Finish = 1 And User_has_Bets.User_Name = p_UserName And User_has_Bets.UserConfirm = 0;
 	#drop table tmptable;
 END$$
 

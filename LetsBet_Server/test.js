@@ -1,13 +1,13 @@
 
 var http = require('http');
-var crypto = require('crypto');//引入加密模块
+
 
 
 
 
 
 var user = {
-    name : "testUser2",
+    name : "testUser",
     password:"1",
     rrname:"",
     rrpassword:""
@@ -26,7 +26,7 @@ var headers = {
 var options = {
     host: 'localhost',//'162.105.74.252',//主机：切记不可在前面加上HTTP://
     port: 8888,//端口号
-    path: '/CreateUser',//路径
+    path: '/Login',//路径
     method: 'POST',//提交方式
     headers: headers
 };
