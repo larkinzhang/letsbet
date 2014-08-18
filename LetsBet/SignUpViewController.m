@@ -68,7 +68,7 @@ extern NSString *LoginSuccessNotification;
         
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/CreateUser"];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSString *params = [NSString stringWithFormat:@"name=%@&password=%@&RRname=%@&RRpassword=%@", self.accountField.text,self.passwordField.text,self.RRaccountField.text,self.RRpasswordField.text];
+    NSString *params = [NSString stringWithFormat:@"name=%@&password=%@&rrname=%@&rrpassword=%@", self.accountField.text,self.passwordField.text,self.RRaccountField.text,self.RRpasswordField.text];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
