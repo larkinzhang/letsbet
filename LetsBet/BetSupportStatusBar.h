@@ -10,6 +10,6 @@
 
 @interface BetSupportStatusBar : UIImageView
 
-- (void)drawStatusBar;
++ (UIImage *)drawStatusBar:(NSInteger)numA and:(NSInteger)numB;
 
 @end

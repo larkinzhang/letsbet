@@ -31,10 +31,10 @@
     self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.titleLabel.numberOfLines = 0;
     
-    self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",self.sideAPopulation, @"人加入正方"];
+    self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"红方",self.sideAPopulation, @"人"];
     self.sideATitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideATitleLabel.numberOfLines = 0;
-    self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",self.sideBPopulation, @"人加入反方"];
+    self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"蓝方",self.sideBPopulation, @"人"];
     self.sideBTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBTitleLabel.numberOfLines = 0;
 
@@ -57,7 +57,7 @@
         self.sideBJoin.hidden = YES;
     }
     
-    [self.statusBar drawStatusBar];
+    [self.statusBar setImage:[BetSupportStatusBar drawStatusBar:self.sideAPopulation and:self.sideBPopulation]];
 }
 
 - (void)didReceiveMemoryWarning

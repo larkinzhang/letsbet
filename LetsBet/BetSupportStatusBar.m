@@ -28,18 +28,22 @@
 }
 */
 
-- (void)drawStatusBar
++ (UIImage *)drawStatusBar:(NSInteger)numA and:(NSInteger)numB
 {
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    //设置颜色，仅填充4条边
-    CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5] CGColor]);
-    //设置线宽为1
-    CGContextSetLineWidth(ctx, 1.0);
-    //设置长方形4个顶点
-    CGPoint poins[] = {CGPointMake(5, 5),CGPointMake(425, 5),CGPointMake(425, 125),CGPointMake(5, 125)};
-    CGContextAddLines(ctx,poins,4);
-    CGContextClosePath(ctx);
-    CGContextStrokePath(ctx);
+    CGFloat width = 280, height = 35;
+    UIImage *red = [UIImage imageNamed:@"red"];
+    UIImage *blue = [UIImage imageNamed:@"blue"];
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    
+    CGFloat partition = width * numA / (numA + numB);
+    [red drawInRect:CGRectMake(0, 0, partition, height)];
+    [blue drawInRect:CGRectMake(partition, 0, width - partition, height)];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 @end
