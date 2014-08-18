@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UMSocial.h"
+#import "BetSupportStatusBar.h"
 
 @interface showDetailsViewController : UIViewController
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sideBTitleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sideAJoin;
 @property (weak, nonatomic) IBOutlet UIButton *sideBJoin;
+@property (weak, nonatomic) IBOutlet BetSupportStatusBar *statusBar;
 
 @property (nonatomic, strong) NSString *titleString, *sideAString, *sideBString, *sideADetailString, *sideBDetailString, *sideATitleString, *sideBTitleString;
 @property (nonatomic) NSUInteger sideAPopulation;

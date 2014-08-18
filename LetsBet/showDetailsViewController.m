@@ -56,6 +56,8 @@
         self.sideAJoin.hidden = YES;
         self.sideBJoin.hidden = YES;
     }
+    
+    [self.statusBar drawStatusBar];
 }
 
 - (void)didReceiveMemoryWarning
