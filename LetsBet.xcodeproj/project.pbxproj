@@ -11,6 +11,7 @@
 		921901D11997B20500D15A77 /* UnfinishedBetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921901D01997B20500D15A77 /* UnfinishedBetCell.m */; };
 		921901D3199A171400D15A77 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921901D2199A171400D15A77 /* SignUpViewController.xib */; };
 		921901D6199A29B300D15A77 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921901D5199A29B300D15A77 /* SignUpViewController.m */; };
+		D03B9473199E79FF00ADF210 /* BetSupportStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D03B9472199E79FF00ADF210 /* BetSupportStatusBar.m */; };
 		D0797CB3192918DB00002349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB2192918DB00002349 /* Foundation.framework */; };
 		D0797CB5192918DB00002349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB4192918DB00002349 /* CoreGraphics.framework */; };
 		D0797CB7192918DB00002349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0797CB6192918DB00002349 /* UIKit.framework */; };
@@ -69,6 +70,8 @@
 		921901D2199A171400D15A77 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		921901D4199A29B300D15A77 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		921901D5199A29B300D15A77 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		D03B9471199E79FF00ADF210 /* BetSupportStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetSupportStatusBar.h; sourceTree = "<group>"; };
+		D03B9472199E79FF00ADF210 /* BetSupportStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetSupportStatusBar.m; sourceTree = "<group>"; };
 		D0797CAF192918DB00002349 /* LetsBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0797CB2192918DB00002349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0797CB4192918DB00002349 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,6 +208,8 @@
 				D0797D061932586E00002349 /* showDetailsViewController.h */,
 				D0797D071932586E00002349 /* showDetailsViewController.m */,
 				D0797D081932586E00002349 /* showDetailsViewController.xib */,
+				D03B9471199E79FF00ADF210 /* BetSupportStatusBar.h */,
+				D03B9472199E79FF00ADF210 /* BetSupportStatusBar.m */,
 				D0797CC4192918DB00002349 /* Main.storyboard */,
 				D0EE0D1D195EF1BB00A29DC2 /* BetAddTableViewController.h */,
 				D0EE0D1E195EF1BB00A29DC2 /* BetAddTableViewController.m */,
@@ -437,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0797D091932586E00002349 /* showDetailsViewController.m in Sources */,
+				D03B9473199E79FF00ADF210 /* BetSupportStatusBar.m in Sources */,
 				D0797CF61929D65B00002349 /* BetLoginViewController.m in Sources */,
 				921901CE1997A5B300D15A77 /* UnfinishedBetViewController.m in Sources */,
 				D0EE0D1B195EE97500A29DC2 /* BetAddTableViewCell.m in Sources */,
