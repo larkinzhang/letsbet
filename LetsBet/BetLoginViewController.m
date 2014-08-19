@@ -47,52 +47,12 @@ SignUpViewController *sub1;
     
     
     sub1 = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
-//    view.title = curBet.betName;
-    //    view.sideADetailString = curBet.penaltyA;
-    //    view.sideBDetailString = curBet.penaltyB;
-//    view.needHidden = YES;
-    
-//    [self.navigationController pushViewController:view animated:YES];
-//    UIView *rootView = [[[NSBundle mainBundle] loadNibNamed:@"BetLoginViewController" owner:self options:nil] objectAtIndex:0];
-//    UIView *containerView = [[[NSBundle mainBundle] loadNibNamed:@"SignUpViewController" owner:self options:nil] lastObject];
-//    [rootView addSubview:view];
     [self.view addSubview:sub1.view];
-//    [view.view addSubview:self.view];
-//    SignUpViewController * containerView = [[SignUpViewController alloc]
-//                                        
-//                                        initWithNibName:@"SignUpViewController" bundle:nil];
-//    [view release];
-//
-//    [rootView addSubview:containerView];
-//    [containerView release];
-    
-
-    
-//    SignUpViewController sub1 = [UIViewController init] initWithNibName:" bundle:<#(NSBundle *)#>
-//    NSArray* nibViews =  [[NSBundle mainBundle] loadibNamed:@"SignUpViewController" owner:self options:nil];
-//
-//     *subView = [nibViews objectAtIndex:0];
-//
-//    [self.view addSubview:subView];
-//    
-//    
-//    In your view controller do:
-//        
-//        [[NSBundle mainBundle] loadNibNamed:@"AboutUsView" owner:self options:nil]; // Retains top level items
-//    [self.view addSubview:aboutUsView];  // Retains the view
-//    [aboutUsView release];
 
 }
 
+/*对于login操作，进行连接服务器对应的地址*/
 - (IBAction)login:(id)sender {
-    /*
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.accountField.text forKey:@"username"];
-    [nc postNotificationName:LoginSuccessNotification object:self userInfo:userInfo];
-    */
-    
-    
-    
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
@@ -109,7 +69,6 @@ SignUpViewController *sub1;
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 NSString *ans = [dict valueForKey:@"ans"];
-                NSLog(@"!!!!%@", ans);
                 if ([ans isEqualToString:@"0"]) {
                 UIAlertView *alert;
                 alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -125,13 +84,13 @@ SignUpViewController *sub1;
                 }
             });
         } else {
+            UIAlertView *alert;
+            alert = [[UIAlertView alloc] initWithTitle:nil message:@"连接服务器错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
         }
         
     }];
-    
-
-    
-
     
     [dataTask resume];
     

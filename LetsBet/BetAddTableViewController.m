@@ -59,63 +59,7 @@
     return 3;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    long section = indexPath.section;
-    long row = indexPath.row;
-    
-    if (section == 0) {
-        BetAddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addIdentifier" forIndexPath:indexPath];
-        if (cell == nil) {
-            cell = [[BetAddTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addIdentifier"];
-        }
-        // Configure the cell...
-        if (row == 0) {
-            cell.label.text = @"名称";
-            cell.textField.placeholder = @"请输入赌局名称";
-        }
-        if (row == 1) {
-            cell.label.text = @"甲方";
-            cell.textField.placeholder = @"请输入甲方选项";
-        }
-        if (row == 2) {
-            cell.label.text = @"乙方";
-            cell.textField.placeholder = @"请输入乙方选项";
-        }
-        
-        return cell;
-    } else {
-        if (row == 0) {
-            BetAddSwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addSwitchIdentifier" forIndexPath:indexPath];
-            if (cell == nil) {
-                cell = [[BetAddSwitchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addSwitchIdentifier"];
-            }
-            cell.label.text = @"惩罚方式";
-            
-            return cell;
-        } else {
-            BetAddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addIdentifier" forIndexPath:indexPath];
-            if (cell == nil) {
-                cell = [[BetAddTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addIdentifier"];
-            }
-            // Configure the cell...
-            if (row == 1) {
-                cell.label.text = @"甲方惩罚";
-                cell.textField.placeholder = @"请输入甲方惩罚";
-            }
-            if (row == 2) {
-                cell.label.text = @"乙方惩罚";
-                cell.textField.placeholder = @"请输入乙方惩罚";
-            }
-            
-            return cell;
-        }
-    }
-    
-    return nil;
-}
- */
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -141,7 +85,7 @@
     
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/CreateBetAndJoin"];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSString *params = [NSString stringWithFormat:@"name=%@&penaltyA=%@&penaltyB=%@&introduction=%@&RRS=%ld&UserName=%@&RRmesA=%@&RRmesB=%@", self.betNameTextField.text, self.sideATextField.text, self.sideBTextField.text, self.betNameTextField.text, 1 - self.segmentedControl1.selectedSegmentIndex, userName, self.renrenTextField1.text, self.renrenTextField2.text];
+    NSString *params = [NSString stringWithFormat:@"name=%@&penaltyA=%@&penaltyB=%@&introduction=%@&RRS=%ld&UserName=%@&RRmesA=%@&RRmesB=%@", self.betNameTextField.text, self.sideATextField.text, self.sideBTextField.text, self.betNameTextField.text, (long)1 - self.segmentedControl1.selectedSegmentIndex, userName, self.renrenTextField1.text, self.renrenTextField2.text];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     

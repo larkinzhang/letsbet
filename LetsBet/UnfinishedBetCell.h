@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/*创建关于未完成列表的表单单元*/
 @interface UnfinishedBetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partyLabel;

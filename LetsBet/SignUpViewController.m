@@ -46,15 +46,8 @@ extern NSString *LoginSuccessNotification;
 }
 
 
-
+/*对于注册操作连接对应的post请求的网址*/
 - (IBAction)Create:(id)sender {
-    /*
-     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.accountField.text forKey:@"username"];
-     [nc postNotificationName:LoginSuccessNotification object:self userInfo:userInfo];
-     */
-    
-    
     
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
@@ -85,24 +78,17 @@ extern NSString *LoginSuccessNotification;
                     alert = [[UIAlertView alloc] initWithTitle:nil message:@"用户名已存在！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                 } else {
-//                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//                    [userDefaults setObject:self.accountField.text forKey:@"username"];
-//                    [userDefaults setObject:self.passwordField.text forKey:@"password"];
-//                    [userDefaults synchronize];
                     [self.view removeFromSuperview];
-//                    [self dismissViewControllerAnimated:YES completion:nil];
-                    
                 }
             });
         } else {
+            UIAlertView *alert;
+            alert = [[UIAlertView alloc] initWithTitle:nil message:@"连接服务器失败！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
         }
         
     }];
-    
-    
-    
-    
-    
     [dataTask resume];
     
     

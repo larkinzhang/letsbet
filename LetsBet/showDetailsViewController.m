@@ -31,10 +31,10 @@
     self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.titleLabel.numberOfLines = 0;
     
-    self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",self.sideAPopulation, @"人加入正方"];
+    self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",(long)self.sideAPopulation, @"人加入正方"];
     self.sideATitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideATitleLabel.numberOfLines = 0;
-    self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",self.sideBPopulation, @"人加入反方"];
+    self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",(long)self.sideBPopulation, @"人加入反方"];
     self.sideBTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBTitleLabel.numberOfLines = 0;
 
@@ -101,7 +101,7 @@
         
         NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UserJoinBet"];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-        NSString *params = [NSString stringWithFormat:@"name=%@&idBets=%ld&party=%ld", userName, self.idBets, alertView.tag + 1];
+        NSString *params = [NSString stringWithFormat:@"name=%@&idBets=%ld&party=%d", userName, (long)self.idBets, alertView.tag + 1];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
         

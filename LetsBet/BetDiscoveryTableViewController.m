@@ -85,13 +85,14 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     BetInfo *curBet = [self.betList objectAtIndex:row];
     cell.titleLabel.text = curBet.betName;
     cell.starterLabel.text = [NSString stringWithFormat:@"发起人: %@", curBet.starter];
-    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %ld", curBet.sumA + curBet.sumB];
+    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %ld", (long)curBet.sumA + curBet.sumB];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
+/*确定表单内容的显示*/
 - (void)getBetFromInternet
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -150,34 +151,6 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     return NO;
 }
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -191,10 +164,7 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     view.sideBString = curBet.voteB;
     view.sideAPopulation = curBet.sumA;
     view.sideBPopulation = curBet.sumB;
-    view.idBets = curBet.idBets;
-//    view.sideADetailString = curBet.penaltyA;
-//    view.sideBDetailString = curBet.penaltyB;
-    
+    view.idBets = curBet.idBets;    
     [self.navigationController pushViewController:view animated:YES];
 }
 

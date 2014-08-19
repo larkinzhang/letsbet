@@ -68,7 +68,7 @@ NSMutableArray *MyBetArr;
     }
 }
 
-
+/*得到关于此赌博的信息*/
 - (void)getBetFromInternet
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -141,23 +141,12 @@ NSMutableArray *MyBetArr;
     cell.VoteB.tag = indexPath.row * 10 + 1;
     cell.voteALabel.text = [NSString stringWithFormat:@"正方票数: %d", curBet.voteASum];
     cell.voteBLabel.text = [NSString stringWithFormat:@"反方票数: %d", curBet.voteBSum];
-
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
 
 - (IBAction)P2:(id)sender {
-    NSLog(@"333");
-//    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:@"User_Name",@"vote",@"Bets_idBets",nil];
-
-//    UITableViewCell * cell = (UITableViewCell *)[sender superview];
-//    NSIndexPath * path = [self.tableView indexPathForCell:cell];
-    NSLog(@"index row %d\n", ((UIButton*)sender).tag);
     int votes = ((UIButton*)sender).tag;
-//    NSLog(@"index row %d\n", votes);
-//    BetInfo *curBet = [self.userList objectAtIndex:row];
-    
     NSDictionary *s1 = [MyBetArr objectAtIndex:votes/10];
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserVote"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
@@ -171,17 +160,9 @@ NSMutableArray *MyBetArr;
     NSLog(@"!!tmpBets: %d\n", tmpBets);
     NSError *error = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
-    
-    
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    //    NSString* postURL = [NSString stringWithData:jsonData encoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
-    NSString *str = @"type=focus-c";//设置参数
-    
-    //  [request setHTTPBody:jsonData];
     [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
@@ -197,6 +178,7 @@ NSMutableArray *MyBetArr;
     return @"已完成";
 }
 
+/*对于显示的内容进行赋值*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
@@ -210,62 +192,11 @@ NSMutableArray *MyBetArr;
     view.sideAPopulation = curBet.sumA;
     view.sideBPopulation = curBet.sumB;
     view.idBets = curBet.idBets;
-    //    view.sideADetailString = curBet.penaltyA;
-    //    view.sideBDetailString = curBet.penaltyB;
     view.needHidden = YES;
     
     [self.navigationController pushViewController:view animated:YES];
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)refresh:(id)sender {
     NSLog(@"refreshing mybet...");
