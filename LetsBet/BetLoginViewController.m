@@ -15,7 +15,9 @@ extern NSString *LoginSuccessNotification;
 @end
 
 @implementation BetLoginViewController
+
 SignUpViewController *sub1;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,43 +46,9 @@ SignUpViewController *sub1;
 
 - (IBAction)signUp:(id)sender {
     
-    
-    
     sub1 = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
-//    view.title = curBet.betName;
-    //    view.sideADetailString = curBet.penaltyA;
-    //    view.sideBDetailString = curBet.penaltyB;
-//    view.needHidden = YES;
     
-//    [self.navigationController pushViewController:view animated:YES];
-//    UIView *rootView = [[[NSBundle mainBundle] loadNibNamed:@"BetLoginViewController" owner:self options:nil] objectAtIndex:0];
-//    UIView *containerView = [[[NSBundle mainBundle] loadNibNamed:@"SignUpViewController" owner:self options:nil] lastObject];
-//    [rootView addSubview:view];
     [self.view addSubview:sub1.view];
-//    [view.view addSubview:self.view];
-//    SignUpViewController * containerView = [[SignUpViewController alloc]
-//                                        
-//                                        initWithNibName:@"SignUpViewController" bundle:nil];
-//    [view release];
-//
-//    [rootView addSubview:containerView];
-//    [containerView release];
-    
-
-    
-//    SignUpViewController sub1 = [UIViewController init] initWithNibName:" bundle:<#(NSBundle *)#>
-//    NSArray* nibViews =  [[NSBundle mainBundle] loadibNamed:@"SignUpViewController" owner:self options:nil];
-//
-//     *subView = [nibViews objectAtIndex:0];
-//
-//    [self.view addSubview:subView];
-//    
-//    
-//    In your view controller do:
-//        
-//        [[NSBundle mainBundle] loadNibNamed:@"AboutUsView" owner:self options:nil]; // Retains top level items
-//    [self.view addSubview:aboutUsView];  // Retains the view
-//    [aboutUsView release];
 
 }
 
@@ -110,10 +78,11 @@ SignUpViewController *sub1;
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 NSString *ans = [dict valueForKey:@"ans"];
                 NSLog(@"!!!!%@", ans);
+                
                 if ([ans isEqualToString:@"0"]) {
-                UIAlertView *alert;
-                alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                    UIAlertView *alert;
+                    alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 } else {
                     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                     [userDefaults setObject:self.accountField.text forKey:@"username"];

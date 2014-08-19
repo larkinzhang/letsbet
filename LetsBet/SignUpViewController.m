@@ -85,13 +85,7 @@ extern NSString *LoginSuccessNotification;
                     alert = [[UIAlertView alloc] initWithTitle:nil message:@"用户名已存在！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                 } else {
-//                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//                    [userDefaults setObject:self.accountField.text forKey:@"username"];
-//                    [userDefaults setObject:self.passwordField.text forKey:@"password"];
-//                    [userDefaults synchronize];
                     [self.view removeFromSuperview];
-//                    [self dismissViewControllerAnimated:YES completion:nil];
-                    
                 }
             });
         } else {
