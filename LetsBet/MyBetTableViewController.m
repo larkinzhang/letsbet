@@ -139,14 +139,10 @@ NSMutableArray *MyBetArr;
     cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %d", curBet.sumA + curBet.sumB];
     cell.VoteA.tag = indexPath.row * 10;
     cell.VoteB.tag = indexPath.row * 10 + 1;
-<<<<<<< HEAD
-    cell.voteALabel.text = [NSString stringWithFormat:@"正方票数: %d", curBet.voteASum];
-    cell.voteBLabel.text = [NSString stringWithFormat:@"反方票数: %d", curBet.voteBSum];
-=======
+
     cell.voteALabel.text = [NSString stringWithFormat:@"红方票数: %d", curBet.voteASum];
     cell.voteBLabel.text = [NSString stringWithFormat:@"蓝方票数: %d", curBet.voteBSum];
 
->>>>>>> 6cd7a67de808d530e8021e81b5ea2719f1a22f67
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
