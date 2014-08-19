@@ -15,7 +15,9 @@ extern NSString *LoginSuccessNotification;
 @end
 
 @implementation BetLoginViewController
+
 SignUpViewController *sub1;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,11 +46,9 @@ SignUpViewController *sub1;
 
 - (IBAction)signUp:(id)sender {
     
-    
-    
     sub1 = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+    
     [self.view addSubview:sub1.view];
-
 }
 
 /*对于login操作，进行连接服务器对应的地址*/
@@ -69,10 +69,12 @@ SignUpViewController *sub1;
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 NSString *ans = [dict valueForKey:@"ans"];
+                NSLog(@"!!!!%@", ans);
+                
                 if ([ans isEqualToString:@"0"]) {
-                UIAlertView *alert;
-                alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                    UIAlertView *alert;
+                    alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码或用户名错误！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 } else {
                     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                     [userDefaults setObject:self.accountField.text forKey:@"username"];
