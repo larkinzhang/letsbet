@@ -31,10 +31,17 @@
     self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.titleLabel.numberOfLines = 0;
     
+<<<<<<< HEAD
     self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",(long)self.sideAPopulation, @"人加入正方"];
     self.sideATitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideATitleLabel.numberOfLines = 0;
     self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"已有",(long)self.sideBPopulation, @"人加入反方"];
+=======
+    self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"红方",self.sideAPopulation, @"人"];
+    self.sideATitleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideATitleLabel.numberOfLines = 0;
+    self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"蓝方",self.sideBPopulation, @"人"];
+>>>>>>> 6cd7a67de808d530e8021e81b5ea2719f1a22f67
     self.sideBTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.sideBTitleLabel.numberOfLines = 0;
 
@@ -56,6 +63,8 @@
         self.sideAJoin.hidden = YES;
         self.sideBJoin.hidden = YES;
     }
+    
+    [self.statusBar setImage:[BetSupportStatusBar drawStatusBar:self.sideAPopulation and:self.sideBPopulation]];
 }
 
 - (void)didReceiveMemoryWarning
