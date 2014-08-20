@@ -27,29 +27,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.titleLabel.text = self.titleString;
-    self.titleLabel.textAlignment = UITextAlignmentCenter;
-    self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.titleLabel.numberOfLines = 0;
     
     self.sideATitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"红方",self.sideAPopulation, @"人"];
-    self.sideATitleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideATitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideATitleLabel.numberOfLines = 0;
     self.sideBTitleLabel.text = [NSString stringWithFormat:@"%@%ld%@",@"蓝方",self.sideBPopulation, @"人"];
-    self.sideBTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideBTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideBTitleLabel.numberOfLines = 0;
 
 
     self.sideALabel.text = self.sideAString;
-    self.sideALabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideALabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideALabel.numberOfLines = 0;
     self.sideBLabel.text = self.sideBString;
-    self.sideBLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideBLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideBLabel.numberOfLines = 0;
     self.sideADetailsLabel.text = self.sideADetailString;
-    self.sideADetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideADetailsLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideADetailsLabel.numberOfLines = 0;
     self.sideBDetailsLabel.text = self.sideBDetailString;
-    self.sideBDetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.sideBDetailsLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.sideBDetailsLabel.numberOfLines = 0;
     
     if (self.needHidden) {

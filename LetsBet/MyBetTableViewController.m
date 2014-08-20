@@ -13,7 +13,7 @@
 @end
 
 @implementation MyBetTableViewController
-int tmpBets;
+NSInteger tmpBets;
 NSMutableArray *MyBetArr;
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -136,12 +136,12 @@ NSMutableArray *MyBetArr;
     // Configure the cell...
     cell.titleLabel.text = curBet.betName;
     cell.starterLabel.text = [NSString stringWithFormat:@"发起人: %@", curBet.starter];
-    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %d", curBet.sumA + curBet.sumB];
+    cell.numberLabel.text = [NSString stringWithFormat:@"参与人数: %ld", curBet.sumA + curBet.sumB];
     cell.VoteA.tag = indexPath.row * 10;
     cell.VoteB.tag = indexPath.row * 10 + 1;
 
-    cell.voteALabel.text = [NSString stringWithFormat:@"红方票数: %d", curBet.voteASum];
-    cell.voteBLabel.text = [NSString stringWithFormat:@"蓝方票数: %d", curBet.voteBSum];
+    cell.voteALabel.text = [NSString stringWithFormat:@"红方票数: %ld", (long)curBet.voteASum];
+    cell.voteBLabel.text = [NSString stringWithFormat:@"蓝方票数: %ld", (long)curBet.voteBSum];
 
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -158,8 +158,8 @@ NSMutableArray *MyBetArr;
         [dictionary setValue:@"2" forKey:@"vote"];
     else
         [dictionary setValue:@"1" forKey:@"vote"];
-    [dictionary setValue:[NSString stringWithFormat:@"%d", tmpBets] forKey:@"Bets_idBets"];
-    NSLog(@"!!tmpBets: %d\n", tmpBets);
+    [dictionary setValue:[NSString stringWithFormat:@"%ld", (long)tmpBets] forKey:@"Bets_idBets"];
+    NSLog(@"!!tmpBets: %ld\n", (long)tmpBets);
     NSError *error = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];

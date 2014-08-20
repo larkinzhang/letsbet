@@ -30,6 +30,5 @@
 
 - (IBAction)sideAJoinButton:(id)sender;
 - (IBAction)sideBJoinButton:(id)sender;
-- (IBAction)share:(id)sender;
 
 @end

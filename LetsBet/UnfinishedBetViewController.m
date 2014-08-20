@@ -13,7 +13,7 @@
 @end
 
 @implementation UnfinishedBetViewController
-int tmpBets;
+NSInteger tmpBets;
 NSMutableArray *MyBetArr;
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -142,19 +142,19 @@ NSMutableArray *MyBetArr;
         cell.finishButton.hidden = NO;
         cell.partyLabel.text = [NSString stringWithFormat:@"所属方：胜方"];
     }
-    cell.remain.text = [NSString stringWithFormat:@"剩余确认人数：%d", curBet.sumA];
+    cell.remain.text = [NSString stringWithFormat:@"剩余确认人数：%ld", (long)curBet.sumA];
     
     return cell;
 }
 
 - (IBAction)P2:(id)sender {
-    int votes = ((UIButton*)sender).tag;
+    NSInteger votes = ((UIButton*)sender).tag;
     NSDictionary *s1 = [MyBetArr objectAtIndex:votes/10];
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserConfirmation"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     tmpBets = [[s1 valueForKey:@"idBets"] integerValue];
     [dictionary setValue:self.userName forKey:@"UserName"];
-    [dictionary setValue:[NSString stringWithFormat:@"%d", tmpBets] forKey:@"Bets_idBets"];
+    [dictionary setValue:[NSString stringWithFormat:@"%ld", (long)tmpBets] forKey:@"Bets_idBets"];
     [dictionary setValue:@"1" forKey:@"confirm"];
     NSError *error = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
