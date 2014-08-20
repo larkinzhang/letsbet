@@ -12,7 +12,7 @@
 #import "showDetailsViewController.h"
 
 
-@interface UnfinishedBetViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+@interface UnfinishedBetViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, NSURLConnectionDataDelegate>
 - (IBAction)refresh:(id)sender;
 
 @property (nonatomic, strong) NSString *userName;

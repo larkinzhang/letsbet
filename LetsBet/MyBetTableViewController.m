@@ -102,6 +102,9 @@ NSMutableArray *MyBetArr;
                     tmp.sumB = [[bet valueForKey:@"SumB"] integerValue];
                     tmp.starter = [bet valueForKey:@"Sponsorer"];
                     tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
+                    tmp.penaltyA = [bet valueForKey:@"RRMesA"];
+                    tmp.penaltyB = [bet valueForKey:@"RRMesB"];
+                    tmp.RRS = [[bet valueForKey:@"RRS"] integerValue];
                     tmpBets = tmp.idBets;
                     [self.userList addObject:tmp];
                 }
@@ -170,6 +173,11 @@ NSMutableArray *MyBetArr;
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
     [conn start];
     
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"OK!");
     [self refresh:nil];
 }
 
@@ -196,6 +204,12 @@ NSMutableArray *MyBetArr;
     view.sideBPopulation = curBet.sumB;
     view.idBets = curBet.idBets;
     view.needHidden = YES;
+    if (curBet.RRS == 0) {
+        view.sideADetailString = curBet.penaltyA;
+        view.sideBDetailString = curBet.penaltyB;
+    } else {
+        view.sideADetailString = view.sideBDetailString = @"人人状态惩罚";
+    }
     
     [self.navigationController pushViewController:view animated:YES];
 }

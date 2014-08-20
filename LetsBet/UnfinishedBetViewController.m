@@ -99,6 +99,11 @@ NSMutableArray *MyBetArr;
                     tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
                     tmp.party = [[bet valueForKey:@"Party"] integerValue];
                     tmp.penaltyParty = [[bet valueForKey:@"PenaltyParty" ]integerValue];
+                    
+                    tmp.penaltyA = [bet valueForKey:@"RRMesA"];
+                    tmp.penaltyB = [bet valueForKey:@"RRMesB"];
+                    tmp.RRS = [[bet valueForKey:@"RRS"] integerValue];
+                    
                     tmpBets = tmp.idBets;
                     [self.userList addObject:tmp];
                 }
@@ -142,6 +147,16 @@ NSMutableArray *MyBetArr;
         cell.finishButton.hidden = NO;
         cell.partyLabel.text = [NSString stringWithFormat:@"所属方：胜方"];
     }
+    if (curBet.RRS == 1) {
+        cell.penalty.text = @"人人状态惩罚";
+    } else {
+        if (curBet.penaltyParty == 0) {
+            cell.penalty.text = curBet.penaltyA;
+        } else {
+            cell.penalty.text = curBet.penaltyB;
+        }
+    }
+    
     cell.remain.text = [NSString stringWithFormat:@"剩余确认人数：%ld", (long)curBet.sumA];
     
     return cell;
@@ -179,7 +194,11 @@ NSMutableArray *MyBetArr;
     return @"已完成";
 }
 
-
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"OK!");
+    [self refresh:nil];
+}
 
 
 - (IBAction)refresh:(id)sender {

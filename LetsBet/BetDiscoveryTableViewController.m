@@ -128,6 +128,7 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
                         tmp.penaltyA = [bet valueForKey:@"RRMesA"];
                         tmp.penaltyB = [bet valueForKey:@"RRMesB"];
                         tmp.idBets = [[bet valueForKey:@"idBets"] integerValue];
+                        tmp.RRS = [[bet valueForKey:@"RRS"] integerValue];
                         
                         [self.betList addObject:tmp];
                     }
@@ -167,7 +168,13 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     view.sideBString = curBet.voteB;
     view.sideAPopulation = curBet.sumA;
     view.sideBPopulation = curBet.sumB;
-    view.idBets = curBet.idBets;    
+    if (curBet.RRS == 0) {
+        view.sideADetailString = curBet.penaltyA;
+        view.sideBDetailString = curBet.penaltyB;
+    } else {
+        view.sideADetailString = view.sideBDetailString = @"人人状态惩罚";
+    }
+    view.idBets = curBet.idBets;
     [self.navigationController pushViewController:view animated:YES];
 }
 

@@ -2,8 +2,8 @@
 //  showDetailsViewController.m
 //  ShowDetails
 //
-//  Created by Zhengjie Miao on 14-5-25.
-//  Copyright (c) 2014年 Zhengjie Miao. All rights reserved.
+//  Created by 张亦弛 on 14-5-25.
+//  Copyright (c) 2014年 Larkin. All rights reserved.
 //
 
 #import "ShowDetailsViewController.h"

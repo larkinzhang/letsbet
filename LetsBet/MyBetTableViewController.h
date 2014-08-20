@@ -11,7 +11,7 @@
 #import "MyBetTableViewCell.h"
 #import "showDetailsViewController.h"
 
-@interface MyBetTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MyBetTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLConnectionDataDelegate>
 - (IBAction)refresh:(id)sender;
 
 @property (nonatomic, strong) NSString *userName;

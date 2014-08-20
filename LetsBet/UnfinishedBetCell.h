@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *partyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *remain;
+@property (weak, nonatomic) IBOutlet UILabel *penalty;
 
 @end
