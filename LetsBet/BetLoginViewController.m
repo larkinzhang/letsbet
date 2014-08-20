@@ -48,6 +48,9 @@ SignUpViewController *sub1;
     
     sub1 = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
     
+    self.accountField.text = @"";
+    self.passwordField.text = @"";
+    
     [self.view addSubview:sub1.view];
 }
 

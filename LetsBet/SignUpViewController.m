@@ -94,6 +94,10 @@ extern NSString *LoginSuccessNotification;
     
 }
 
+- (IBAction)cancel:(id)sender {
+    [self.view removeFromSuperview];
+}
+
 - (void)keyboardHide:(UITapGestureRecognizer*)tap{
     [self.accountField resignFirstResponder];
     [self.passwordField resignFirstResponder];

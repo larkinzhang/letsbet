@@ -143,7 +143,6 @@ NSMutableArray *MyBetArr;
         cell.partyLabel.text = [NSString stringWithFormat:@"所属方：胜方"];
     }
     cell.remain.text = [NSString stringWithFormat:@"剩余确认人数：%d", curBet.sumA];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
