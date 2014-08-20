@@ -8,6 +8,8 @@
 
 #import "SignUpViewController.h"
 
+extern NSString *server, *port;
+
 @interface SignUpViewController ()
 
 @end
@@ -59,7 +61,7 @@ extern NSString *LoginSuccessNotification;
         return;
     }
         
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/CreateUser"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/CreateUser", server, port]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@&password=%@&rrname=%@&rrpassword=%@", self.accountField.text,self.passwordField.text,self.RRaccountField.text,self.RRpasswordField.text];
     [urlRequest setHTTPMethod:@"POST"];

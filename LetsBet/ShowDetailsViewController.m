@@ -8,7 +8,7 @@
 
 #import "ShowDetailsViewController.h"
 
-
+extern NSString *server, *port;
 
 @implementation ShowDetailsViewController
     
@@ -94,7 +94,7 @@
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
         
-        NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UserJoinBet"];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/UserJoinBet", server, port]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
         NSString *params = [NSString stringWithFormat:@"name=%@&idBets=%ld&party=%ld", userName, (long)self.idBets, alertView.tag + 1];
         [urlRequest setHTTPMethod:@"POST"];

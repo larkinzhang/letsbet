@@ -9,6 +9,7 @@
 #import "BetDiscoveryTableViewController.h"
 
 NSString* const LoginSuccessNotification = @"LoginSuccess";
+extern NSString *server, *port;
 
 @interface BetDiscoveryTableViewController ()
 
@@ -101,7 +102,7 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/QueryActiveBets"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/QueryActiveBets", server, port]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@", self.userName];
     [urlRequest setHTTPMethod:@"POST"];

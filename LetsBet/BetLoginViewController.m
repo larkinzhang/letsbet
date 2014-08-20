@@ -8,7 +8,9 @@
 
 #import "BetLoginViewController.h"
 #import "SignUpViewController.h"
+
 extern NSString *LoginSuccessNotification;
+extern NSString *server, *port;
 
 @interface BetLoginViewController ()
 
@@ -59,7 +61,7 @@ SignUpViewController *sub1;
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/Login"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/Login", server, port]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@&password=%@", self.accountField.text,self.passwordField.text];
     [urlRequest setHTTPMethod:@"POST"];

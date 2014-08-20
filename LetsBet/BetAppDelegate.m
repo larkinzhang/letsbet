@@ -8,6 +8,9 @@
 
 #import "BetAppDelegate.h"
 
+NSString *server = @"188.74.68.171";
+NSString *port = @"8888";
+
 @implementation BetAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -8,6 +8,8 @@
 
 #import "UnfinishedBetViewController.h"
 
+extern NSString *server, *port;
+
 @interface UnfinishedBetViewController ()
 
 @end
@@ -74,7 +76,7 @@ NSMutableArray *MyBetArr;
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/QueryNeedConfirmBets"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/QueryNeedConfirmBets", server, port]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@", self.userName];
     [urlRequest setHTTPMethod:@"POST"];
@@ -165,7 +167,7 @@ NSMutableArray *MyBetArr;
 - (IBAction)P2:(id)sender {
     NSInteger votes = ((UIButton*)sender).tag;
     NSDictionary *s1 = [MyBetArr objectAtIndex:votes/10];
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserConfirmation"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/UpdateUserConfirmation", server, port]];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     tmpBets = [[s1 valueForKey:@"idBets"] integerValue];
     [dictionary setValue:self.userName forKey:@"UserName"];

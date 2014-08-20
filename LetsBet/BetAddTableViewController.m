@@ -8,6 +8,8 @@
 
 #import "BetAddTableViewController.h"
 
+extern NSString *server, *port;
+
 @interface BetAddTableViewController ()
 
 @end
@@ -64,7 +66,7 @@
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/CreateBetAndJoin"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%@/CreateBetAndJoin", server, port]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *params = [NSString stringWithFormat:@"name=%@&penaltyA=%@&penaltyB=%@&introduction=%@&RRS=%ld&UserName=%@&RRmesA=%@&RRmesB=%@", self.betNameTextField.text, self.sideATextField.text, self.sideBTextField.text, self.betNameTextField.text, (long)1 - self.segmentedControl1.selectedSegmentIndex, userName, self.renrenTextField1.text, self.renrenTextField2.text];
     [urlRequest setHTTPMethod:@"POST"];
