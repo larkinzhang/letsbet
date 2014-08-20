@@ -40,9 +40,12 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(loginSuccess:) name:LoginSuccessNotification object:nil];
     */
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    BetLoginViewController *view = [[BetLoginViewController alloc] initWithNibName:@"BetLoginViewController" bundle:nil];
-    [self presentViewController:view animated:YES completion:nil];
+    if ([userDefaults objectForKey:@"username"] == nil) {
+        BetLoginViewController *view = [[BetLoginViewController alloc] initWithNibName:@"BetLoginViewController" bundle:nil];
+        [self presentViewController:view animated:YES completion:nil];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -157,7 +160,7 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
     NSInteger row = [indexPath row];
     BetInfo *curBet = [self.betList objectAtIndex:row];
     
-    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
+    ShowDetailsViewController *view = [[ShowDetailsViewController alloc] initWithNibName:@"ShowDetailsViewController" bundle:nil];
     view.title = curBet.betName;
     view.titleString = curBet.intro;
     view.sideAString = curBet.voteA;
@@ -188,6 +191,24 @@ NSString* const LoginSuccessNotification = @"LoginSuccess";
 
     
     [self refresh:nil];
+}
+
+- (IBAction)account:(id)sender {
+    UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"是否登出账户？" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"登出账户" otherButtonTitles:nil, nil];
+    
+    [actionsheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults removeObjectForKey:@"username"];
+        [userDefaults removeObjectForKey:@"password"];
+        
+        BetLoginViewController *view = [[BetLoginViewController alloc] initWithNibName:@"BetLoginViewController" bundle:nil];
+        [self presentViewController:view animated:YES completion:nil];
+    }
 }
 
 @end

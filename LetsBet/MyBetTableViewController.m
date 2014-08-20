@@ -148,7 +148,7 @@ NSMutableArray *MyBetArr;
 }
 
 - (IBAction)P2:(id)sender {
-    int votes = ((UIButton*)sender).tag;
+    NSInteger votes = ((UIButton*)sender).tag;
     NSDictionary *s1 = [MyBetArr objectAtIndex:votes/10];
     NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/UpdateUserVote"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
@@ -170,6 +170,7 @@ NSMutableArray *MyBetArr;
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
     [conn start];
     
+    [self refresh:nil];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -186,7 +187,7 @@ NSMutableArray *MyBetArr;
     NSInteger row = [indexPath row];
     BetInfo *curBet = [self.userList objectAtIndex:row];
     
-    showDetailsViewController *view = [[showDetailsViewController alloc] initWithNibName:@"showDetailsViewController" bundle:nil];
+    ShowDetailsViewController *view = [[ShowDetailsViewController alloc] initWithNibName:@"ShowDetailsViewController" bundle:nil];
     view.title = curBet.betName;
     view.titleString = curBet.intro;
     view.sideAString = curBet.voteA;

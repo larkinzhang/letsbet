@@ -4,18 +4,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="showDetailsViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowDetailsViewController">
             <connections>
-                <outlet property="sideADetailsLabel" destination="d4P-Ge-Jhd" id="KWg-nM-45G"/>
-                <outlet property="sideAJoin" destination="2G5-cE-gfT" id="bJ3-E4-FnT"/>
-                <outlet property="sideALabel" destination="Ufa-4y-MQZ" id="aZG-nD-kzQ"/>
-                <outlet property="sideATitleLabel" destination="Glb-m9-VBW" id="qLb-xP-6e4"/>
-                <outlet property="sideBDetailsLabel" destination="gGS-y1-Mqb" id="1R2-s3-N9q"/>
-                <outlet property="sideBJoin" destination="ihl-vh-p6l" id="Zzj-1s-eiu"/>
-                <outlet property="sideBLabel" destination="r2L-UJ-pEj" id="23h-Dk-Ydh"/>
-                <outlet property="sideBTitleLabel" destination="X0H-Z2-XYI" id="RyX-MD-raG"/>
-                <outlet property="statusBar" destination="0H6-lA-Ln9" id="kMF-7w-zO7"/>
-                <outlet property="titleLabel" destination="X91-Ta-qyR" id="o8a-xV-cpJ"/>
+                <outlet property="sideADetailsLabel" destination="d4P-Ge-Jhd" id="PEA-K2-oGB"/>
+                <outlet property="sideAJoin" destination="2G5-cE-gfT" id="CxH-bu-8rj"/>
+                <outlet property="sideALabel" destination="Glb-m9-VBW" id="EQH-dk-wuK"/>
+                <outlet property="sideATitleLabel" destination="Ufa-4y-MQZ" id="ToX-tf-BN5"/>
+                <outlet property="sideBDetailsLabel" destination="gGS-y1-Mqb" id="sFp-I4-gr4"/>
+                <outlet property="sideBJoin" destination="ihl-vh-p6l" id="Rdq-rn-gVl"/>
+                <outlet property="sideBLabel" destination="X0H-Z2-XYI" id="UDZ-RN-u5d"/>
+                <outlet property="sideBTitleLabel" destination="r2L-UJ-pEj" id="ur7-YL-RhF"/>
+                <outlet property="statusBar" destination="0H6-lA-Ln9" id="3Vp-9r-Q14"/>
+                <outlet property="titleLabel" destination="X91-Ta-qyR" id="BPz-qk-hMb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

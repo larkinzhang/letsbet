@@ -32,8 +32,8 @@
 		D0797CFA1931CEF800002349 /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797CF91931CEF800002349 /* DiscoveryTableViewCell.m */; };
 		D0797D021932264E00002349 /* BetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D011932264E00002349 /* BetInfo.m */; };
 		D0797D05193249DE00002349 /* MyBetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D04193249DE00002349 /* MyBetTableViewCell.m */; };
-		D0797D091932586E00002349 /* showDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D071932586E00002349 /* showDetailsViewController.m */; };
-		D0797D0A1932586E00002349 /* showDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0797D081932586E00002349 /* showDetailsViewController.xib */; };
+		D0797D091932586E00002349 /* ShowDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0797D071932586E00002349 /* ShowDetailsViewController.m */; };
+		D0797D0A1932586E00002349 /* ShowDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0797D081932586E00002349 /* ShowDetailsViewController.xib */; };
 		D0EE0D1B195EE97500A29DC2 /* BetAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D19195EE97500A29DC2 /* BetAddTableViewCell.m */; };
 		D0EE0D1F195EF1BB00A29DC2 /* BetAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D1E195EF1BB00A29DC2 /* BetAddTableViewController.m */; };
 		D0EE0D22195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0D21195EFCEE00A29DC2 /* BetAddSwitchTableViewCell.m */; };
@@ -89,9 +89,9 @@
 		D0797D011932264E00002349 /* BetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetInfo.m; sourceTree = "<group>"; };
 		D0797D03193249DE00002349 /* MyBetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBetTableViewCell.h; sourceTree = "<group>"; };
 		D0797D04193249DE00002349 /* MyBetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBetTableViewCell.m; sourceTree = "<group>"; };
-		D0797D061932586E00002349 /* showDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showDetailsViewController.h; sourceTree = "<group>"; };
-		D0797D071932586E00002349 /* showDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showDetailsViewController.m; sourceTree = "<group>"; };
-		D0797D081932586E00002349 /* showDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = showDetailsViewController.xib; sourceTree = "<group>"; };
+		D0797D061932586E00002349 /* ShowDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsViewController.h; sourceTree = "<group>"; };
+		D0797D071932586E00002349 /* ShowDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsViewController.m; sourceTree = "<group>"; };
+		D0797D081932586E00002349 /* ShowDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsViewController.xib; sourceTree = "<group>"; };
 		D0EE0D18195EE97500A29DC2 /* BetAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddTableViewCell.h; sourceTree = "<group>"; };
 		D0EE0D19195EE97500A29DC2 /* BetAddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetAddTableViewCell.m; sourceTree = "<group>"; };
 		D0EE0D1D195EF1BB00A29DC2 /* BetAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetAddTableViewController.h; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 			children = (
 				D0797CC1192918DB00002349 /* BetAppDelegate.h */,
 				D0797CC2192918DB00002349 /* BetAppDelegate.m */,
-				D0797D061932586E00002349 /* showDetailsViewController.h */,
-				D0797D071932586E00002349 /* showDetailsViewController.m */,
-				D0797D081932586E00002349 /* showDetailsViewController.xib */,
+				D0797D061932586E00002349 /* ShowDetailsViewController.h */,
+				D0797D071932586E00002349 /* ShowDetailsViewController.m */,
+				D0797D081932586E00002349 /* ShowDetailsViewController.xib */,
 				D03B9471199E79FF00ADF210 /* BetSupportStatusBar.h */,
 				D03B9472199E79FF00ADF210 /* BetSupportStatusBar.m */,
 				D0797CC4192918DB00002349 /* Main.storyboard */,
@@ -304,7 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0797D0A1932586E00002349 /* showDetailsViewController.xib in Resources */,
+				D0797D0A1932586E00002349 /* ShowDetailsViewController.xib in Resources */,
 				D0797CCB192918DB00002349 /* Images.xcassets in Resources */,
 				D0797CBD192918DB00002349 /* InfoPlist.strings in Resources */,
 				D0797CF71929D65B00002349 /* BetLoginViewController.xib in Resources */,
@@ -328,7 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0797D091932586E00002349 /* showDetailsViewController.m in Sources */,
+				D0797D091932586E00002349 /* ShowDetailsViewController.m in Sources */,
 				D03B9473199E79FF00ADF210 /* BetSupportStatusBar.m in Sources */,
 				D0797CF61929D65B00002349 /* BetLoginViewController.m in Sources */,
 				921901CE1997A5B300D15A77 /* UnfinishedBetViewController.m in Sources */,

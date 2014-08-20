@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BetSupportStatusBar.h"
 
-@interface showDetailsViewController : UIViewController
+@interface ShowDetailsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sideALabel;

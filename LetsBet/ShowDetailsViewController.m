@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 Zhengjie Miao. All rights reserved.
 //
 
-#import "showDetailsViewController.h"
+#import "ShowDetailsViewController.h"
 
 
 
-@implementation showDetailsViewController
+@implementation ShowDetailsViewController
     
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

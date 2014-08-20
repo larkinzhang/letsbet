@@ -53,6 +53,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="发现" id="AVA-rw-SCQ">
+                        <barButtonItem key="leftBarButtonItem" title="账户" id="8TC-TJ-fz7">
+                            <connections>
+                                <action selector="account:" destination="jVz-JQ-CC4" id="Gpj-4W-PGK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="创建赌局" id="cno-dX-F7S">
                             <connections>
                                 <segue destination="fSM-WQ-IaQ" kind="modal" id="emM-F4-9YB"/>
@@ -367,17 +372,28 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzj-uN-W38">
-                                            <rect key="frame" x="209" y="61" width="45" height="30"/>
+                                            <rect key="frame" x="172" y="94" width="45" height="30"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <state key="normal" title="红方赢">
                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="P2:" destination="mNI-Jd-hjA" eventType="touchUpInside" id="x2L-3M-dJ6"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蓝方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqy-8U-bmU">
+                                            <rect key="frame" x="20" y="99" width="186" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="红方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-e9-U5O">
+                                            <rect key="frame" x="20" y="82" width="185" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6q-Tp-ykQ">
-                                            <rect key="frame" x="209" y="95" width="46" height="30"/>
+                                            <rect key="frame" x="233" y="94" width="46" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="蓝方赢">
                                                 <color key="titleColor" red="0.13333333333333333" green="0.54117647058823526" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -386,16 +402,6 @@
                                                 <action selector="P2:" destination="mNI-Jd-hjA" eventType="touchUpInside" id="MtS-Bg-GBT"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蓝方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqy-8U-bmU">
-                                            <rect key="frame" x="20" y="104" width="186" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="红方投票人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-e9-U5O">
-                                            <rect key="frame" x="21" y="83" width="185" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -444,11 +450,11 @@
             </objects>
             <point key="canvasLocation" x="206" y="-397"/>
         </scene>
-        <!--未完成赌局-->
+        <!--待惩罚赌局-->
         <scene sceneID="ZlL-z3-gho">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCc-C7-KgC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="未完成赌局" image="UMS_sms_on.png" id="9cX-aK-UTp"/>
+                    <tabBarItem key="tabBarItem" title="待惩罚赌局" image="todo" id="9cX-aK-UTp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="otj-Ny-SIi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -534,8 +540,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="UMS_sms_on.png" width="39" height="39"/>
         <image name="compass" width="33" height="30"/>
+        <image name="todo" width="25" height="27"/>
         <image name="user" width="25" height="26"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

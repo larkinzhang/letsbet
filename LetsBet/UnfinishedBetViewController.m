@@ -175,7 +175,7 @@ NSMutableArray *MyBetArr;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"正在进行";
+        return @"尚未完成惩罚";
     }
     return @"已完成";
 }

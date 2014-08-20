@@ -13,9 +13,11 @@
 #import "BetInfo.h"
 #import "showDetailsViewController.h"
 
-@interface BetDiscoveryTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BetDiscoveryTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSMutableArray *betList;
 @property (nonatomic, strong) NSString *userName;
+
+- (IBAction)account:(id)sender;
 
 @end
